@@ -58,4 +58,8 @@ public class StartingSceneController {
 
     }
 
+
+    public static String getFunction() {
+        return function;
+    }
 }
