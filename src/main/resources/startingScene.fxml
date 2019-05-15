@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.StartingSceneController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartingSceneController">
+   <children>
+      <ComboBox fx:id="starting_functions_combobox" layoutX="525.0" layoutY="435.0" onAction="#saveFunction" prefHeight="31.0" prefWidth="550.0" />
+      <Button fx:id="starting_start_button" layoutX="775.0" layoutY="493.0" mnemonicParsing="false" onAction="#startApplication" text="Start" />
+      <Text fx:id="starting_choose_text" layoutX="525.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chose function from list below:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="starting_error_text" fill="RED" layoutX="730.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hidden error text." visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="starting_authors_text" layoutX="7.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcin Wójcik &amp; Sebastian Kemnitz | group 4 | Applied Computer Science 18/19" />
+   </children>
 </AnchorPane>

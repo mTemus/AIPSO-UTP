@@ -16,7 +16,7 @@ public class SceneOperations {
         Scene eventScene = new Scene(EventViewParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(eventScene);
-        window.setTitle("NormalModelEvent panel");
+        window.setTitle("PSO Project | Marcin Wójcik & Sebastian Kemnitz");
         window.show();
     }
 }

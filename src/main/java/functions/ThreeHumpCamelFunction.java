@@ -8,7 +8,7 @@ public class ThreeHumpCamelFunction {
      * @param y the y component
      * @return the z component
      */
-    static double threeHumpCamelFunction(double x, double y) {
+    public static double threeHumpCamelFunction(double x, double y) {
         double p1 = 2 * x * x;
         double p2 = 1.05 * Math.pow(x, 4);
         double p3 = Math.pow(x, 6) / 6;
