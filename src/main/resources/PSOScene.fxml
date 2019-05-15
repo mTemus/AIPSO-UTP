@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.media.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -19,10 +21,36 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <Text layoutX="1028.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Function Settings">
+      <Text layoutX="1161.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Function Settings">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
+      <ProgressBar layoutX="14.0" layoutY="291.0" prefHeight="23.0" prefWidth="550.0" progress="0.0" />
+      <Button layoutX="1245.0" layoutY="808.0" mnemonicParsing="false" text="Save settings" />
+      <Text layoutX="1232.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swarm settings">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="1075.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Field range:" />
+      <TextArea layoutX="583.0" layoutY="326.0" prefHeight="550.0" prefWidth="350.0" />
+      <Text layoutX="583.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text log: (alpha)" />
+      <RadioButton layoutX="1075.0" layoutY="152.0" mnemonicParsing="false" text="50x50" />
+      <RadioButton layoutX="1163.0" layoutY="152.0" mnemonicParsing="false" selected="true" text="100x100" />
+      <RadioButton layoutX="1257.0" layoutY="152.0" mnemonicParsing="false" text="150x150" />
+      <RadioButton layoutX="1353.0" layoutY="152.0" mnemonicParsing="false" text="200x200" />
+      <Text layoutX="1076.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Interia:" />
+      <Text layoutX="1076.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Cognitive component:" />
+      <Text layoutX="1076.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Social component:" />
+      <RadioButton layoutX="1077.0" layoutY="223.0" mnemonicParsing="false" selected="true" text="0.729844 (default)" />
+      <RadioButton layoutX="1238.0" layoutY="223.0" mnemonicParsing="false" text="Own:" />
+      <TextField layoutX="1310.0" layoutY="218.0" prefHeight="31.0" prefWidth="275.0" promptText="Type own interia value..." />
+      <RadioButton layoutX="1077.0" layoutY="292.0" mnemonicParsing="false" selected="true" text="1.496180 (default)" />
+      <RadioButton layoutX="1238.0" layoutY="292.0" mnemonicParsing="false" text="Own:" />
+      <TextField layoutX="1310.0" layoutY="287.0" prefHeight="31.0" prefWidth="275.0" promptText="Type own cognitive component value..." />
+      <RadioButton layoutX="1077.0" layoutY="354.0" mnemonicParsing="false" selected="true" text="1.496180 (default)" />
+      <RadioButton layoutX="1238.0" layoutY="354.0" mnemonicParsing="false" text="Own:" />
+      <TextField layoutX="1310.0" layoutY="349.0" prefHeight="31.0" prefWidth="275.0" promptText="Type own social component value..." />
    </children>
 </AnchorPane>
