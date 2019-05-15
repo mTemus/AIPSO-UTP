@@ -27,7 +27,7 @@
          </font>
       </Text>
       <ProgressBar layoutX="14.0" layoutY="291.0" prefHeight="23.0" prefWidth="550.0" progress="0.0" />
-      <Button layoutX="1245.0" layoutY="808.0" mnemonicParsing="false" text="Save settings" />
+      <Button layoutX="1248.0" layoutY="666.0" mnemonicParsing="false" text="Save settings" />
       <Text layoutX="1232.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swarm settings">
          <font>
             <Font size="20.0" />
@@ -52,5 +52,25 @@
       <RadioButton layoutX="1077.0" layoutY="354.0" mnemonicParsing="false" selected="true" text="1.496180 (default)" />
       <RadioButton layoutX="1238.0" layoutY="354.0" mnemonicParsing="false" text="Own:" />
       <TextField layoutX="1310.0" layoutY="349.0" prefHeight="31.0" prefWidth="275.0" promptText="Type own social component value..." />
+      <Text layoutX="1227.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Particles settings">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField layoutX="1310.0" layoutY="435.0" prefHeight="31.0" prefWidth="275.0" />
+      <Text layoutX="1188.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Particles amount:" />
+      <TextField layoutX="1310.0" layoutY="478.0" prefHeight="31.0" prefWidth="275.0" />
+      <Text layoutX="1175.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Epochs:" />
+      <Text layoutX="1209.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Application settings:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="1078.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Application delay:" />
+      <RadioButton layoutX="1355.0" layoutY="601.0" mnemonicParsing="false" text="1000 ms" />
+      <RadioButton layoutX="1259.0" layoutY="601.0" mnemonicParsing="false" text="500 ms" />
+      <RadioButton layoutX="1165.0" layoutY="601.0" mnemonicParsing="false" text="200 ms" />
+      <RadioButton layoutX="1077.0" layoutY="601.0" mnemonicParsing="false" selected="true" text="0 ms" />
+      <RadioButton layoutX="1459.0" layoutY="601.0" mnemonicParsing="false" text="1500 ms" />
    </children>
 </AnchorPane>
