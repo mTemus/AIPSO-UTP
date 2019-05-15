@@ -28,8 +28,6 @@ public class StartingSceneController {
             function = "booth";
         else if (chosenFunction.equals("Three-hump camel function"))
             function = "camel";
-
-
     }
 
     public void startApplication(ActionEvent event) {
