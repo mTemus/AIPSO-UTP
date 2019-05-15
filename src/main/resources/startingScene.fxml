@@ -7,17 +7,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartingSceneController">
    <children>
-      <ComboBox fx:id="starting_functions_combobox" layoutX="525.0" layoutY="435.0" onAction="#saveFunction" prefHeight="31.0" prefWidth="550.0" />
-      <Button fx:id="starting_start_button" layoutX="775.0" layoutY="493.0" mnemonicParsing="false" onAction="#startApplication" text="Start" />
+      <ComboBox fx:id="starting_functions_combobox" layoutX="525.0" layoutY="435.0" onAction="#saveFunction" prefHeight="31.0" prefWidth="550.0" promptText="Chose a function..." />
+      <Button fx:id="starting_start_button" layoutX="775.0" layoutY="519.0" mnemonicParsing="false" onAction="#startApplication" text="Start" />
       <Text fx:id="starting_choose_text" layoutX="525.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chose function from list below:">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="starting_error_text" fill="RED" layoutX="730.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hidden error text." visible="false">
+      <Text fx:id="starting_error_text" fill="RED" layoutX="525.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hidden error text." visible="false">
          <font>
             <Font size="18.0" />
          </font>
