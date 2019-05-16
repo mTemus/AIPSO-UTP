@@ -81,63 +81,53 @@ public class Particle {
         }
     }
 
-    /**
-     * Get a copy of the position of the particle.
-     *
-     * @return the x position
-     */
-    Vector getPosition() {
-        return position.clone();
-    }
-
-    /**
-     * Get a copy of the velocity of the particle.
-     *
-     * @return the velocity
-     */
-    Vector getVelocity() {
-        return velocity.clone();
-    }
-
-    /**
-     * Get a copy of the personal best solution.
-     *
-     * @return the best position
-     */
-    Vector getBestPosition() {
-        return bestPosition.clone();
-    }
-
-    /**
-     * Get the value of the personal best solution.
-     *
-     * @return the evaluation
-     */
-    double getBestEval() {
-        return bestEval;
-    }
-
-    /**
-     * Update the position of a particle by adding its velocity to its position.
-     */
-    void updatePosition() {
-        this.position.add(velocity);
-    }
-
-    /**
-     * Set the velocity of the particle.
-     *
-     * @param velocity the new velocity
-     */
-    void setVelocity(Vector velocity) {
-        this.velocity = velocity.clone();
-    }
-
     public enum FunctionType {
-        FunctionA,
         Ackleys,
         Booths,
         ThreeHumpCamel
     }
 
+    void updatePosition() {
+        this.position.add(velocity);
+    }
+
+    public Vector getPosition() {
+        return position.clone();
+    }
+
+    public Vector getVelocity() {
+        return velocity.clone();
+    }
+
+    public Vector getBestPosition() {
+        return bestPosition.clone();
+    }
+
+    public double getBestEval() {
+        return bestEval;
+    }
+
+    public void setVelocity(Vector velocity) {
+        this.velocity = velocity.clone();
+    }
+
+    public void setPosition(Vector position) {
+        this.position = position;
+    }
+
+    public void setBestPosition(Vector bestPosition) {
+        this.bestPosition = bestPosition;
+    }
+
+    public void setBestEval(double bestEval) {
+        this.bestEval = bestEval;
+    }
+
+    public FunctionType getFunction() {
+        return function;
+    }
+
+    public void setFunction(FunctionType function) {
+        this.function = function;
+    }
 }

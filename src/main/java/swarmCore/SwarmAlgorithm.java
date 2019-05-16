@@ -88,9 +88,8 @@ public class SwarmAlgorithm {
 
         System.out.println("---------------------------RESULT---------------------------");
         System.out.println("x = " + bestPosition.getX());
-        if (function != Particle.FunctionType.FunctionA) {
-            System.out.println("y = " + bestPosition.getY());
-        }
+        System.out.println("y = " + bestPosition.getY());
+
         System.out.println("Final Best Evaluation: " + bestEval);
         System.out.println("---------------------------COMPLETE-------------------------");
 

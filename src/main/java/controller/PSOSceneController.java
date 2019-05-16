@@ -42,6 +42,22 @@ public class PSOSceneController {
     public Text pso_x_value_text;
     public Text pso_y_value_text;
 
+    private enum FunctionType {
+        ACKLEY, BOOTH, CAMEL
+    }
+
+    private enum RadioChosen {
+        DEFAULT, OWN
+    }
+
+    private FunctionType currentFunctionType;
+    private RadioChosen interiaBox;
+    private RadioChosen cognitiveBox;
+    private RadioChosen socialBox;
+
+    private int applicationDelay;
+
+
     public void saveSettings(ActionEvent event) {
     }
 
@@ -58,5 +74,20 @@ public class PSOSceneController {
     private void setFunctionName() {
         String functionName = StartingSceneController.getFunction() + " function";
         pso_function_name_text.setText(functionName);
+
+        checkFunctionType(functionName);
     }
+
+    private void checkFunctionType(String functionName) {
+        if (functionName.equals("Ackley"))
+            currentFunctionType = FunctionType.ACKLEY;
+        else if (functionName.equals("Booth"))
+            currentFunctionType = FunctionType.BOOTH;
+        else if (functionName.equals("Camel"))
+            currentFunctionType = FunctionType.CAMEL;
+        else
+            System.out.println("Check function type error.");
+    }
+
+
 }
