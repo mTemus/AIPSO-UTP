@@ -9,9 +9,9 @@ public class SwarmAlgorithm {
     private Vector bestPosition;
     private double bestEval;
     private Particle.FunctionType function; // The function to search.
-    public static final double DEFAULT_INERTIA = 0.729844;
-    public static final double DEFAULT_COGNITIVE = 1.496180; // Cognitive component.
-    public static final double DEFAULT_SOCIAL = 1.496180; // Social component.
+    private static final double DEFAULT_INERTIA = 0.729844;
+    private static final double DEFAULT_COGNITIVE = 1.496180; // Cognitive component.
+    private static final double DEFAULT_SOCIAL = 1.496180; // Social component.
 
     /**
      * When Particles are created they are given a random position.
@@ -67,13 +67,12 @@ public class SwarmAlgorithm {
         System.out.println("Global Best Evaluation (Epoch " + 0 + "):\t" + bestEval);
 
         for (int i = 0; i < epochs; i++) {
-
+            Thread.sleep(200);
             if (bestEval < oldEval) {
                 System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
                 oldEval = bestEval;
-            }
-//            else if (i != 0)
-//                System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
+            } else if (i != 0)
+                System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
 
             for (Particle p : particles) {
                 p.updatePersonalBest();
@@ -157,4 +156,104 @@ public class SwarmAlgorithm {
         particle.setVelocity(newVelocity);
     }
 
+
+    public static double getDefaultInertia() {
+        return DEFAULT_INERTIA;
+    }
+
+    public static double getDefaultCognitive() {
+        return DEFAULT_COGNITIVE;
+    }
+
+    public static double getDefaultSocial() {
+        return DEFAULT_SOCIAL;
+    }
+
+    public int getNumOfParticles() {
+        return numOfParticles;
+    }
+
+    public void setNumOfParticles(int numOfParticles) {
+        this.numOfParticles = numOfParticles;
+    }
+
+    public int getEpochs() {
+        return epochs;
+    }
+
+    public void setEpochs(int epochs) {
+        this.epochs = epochs;
+    }
+
+    public double getInertia() {
+        return inertia;
+    }
+
+    public void setInertia(double inertia) {
+        this.inertia = inertia;
+    }
+
+    public double getCognitiveComponent() {
+        return cognitiveComponent;
+    }
+
+    public void setCognitiveComponent(double cognitiveComponent) {
+        this.cognitiveComponent = cognitiveComponent;
+    }
+
+    public double getSocialComponent() {
+        return socialComponent;
+    }
+
+    public void setSocialComponent(double socialComponent) {
+        this.socialComponent = socialComponent;
+    }
+
+    public Vector getBestPosition() {
+        return bestPosition;
+    }
+
+    public void setBestPosition(Vector bestPosition) {
+        this.bestPosition = bestPosition;
+    }
+
+    public double getBestEval() {
+        return bestEval;
+    }
+
+    public void setBestEval(double bestEval) {
+        this.bestEval = bestEval;
+    }
+
+    public Particle.FunctionType getFunction() {
+        return function;
+    }
+
+    public void setFunction(Particle.FunctionType function) {
+        this.function = function;
+    }
+
+    public int getBeginRange() {
+        return beginRange;
+    }
+
+    public void setBeginRange(int beginRange) {
+        this.beginRange = beginRange;
+    }
+
+    public int getEndRange() {
+        return endRange;
+    }
+
+    public void setEndRange(int endRange) {
+        this.endRange = endRange;
+    }
+
+    public static int getDefaultBeginRange() {
+        return DEFAULT_BEGIN_RANGE;
+    }
+
+    public static int getDefaultEndRange() {
+        return DEFAULT_END_RANGE;
+    }
 }

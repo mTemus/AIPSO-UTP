@@ -3,6 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import swarmCore.SwarmAlgorithm;
 
 public class PSOSceneController {
     public Text starting_authors_text;
@@ -41,6 +42,7 @@ public class PSOSceneController {
     public Text pso_global_best_evaluation_text;
     public Text pso_x_value_text;
     public Text pso_y_value_text;
+    public Text pso_fields_error_text;
 
     private enum FunctionType {
         ACKLEY, BOOTH, CAMEL
@@ -54,6 +56,12 @@ public class PSOSceneController {
     private RadioChosen interiaBox;
     private RadioChosen cognitiveBox;
     private RadioChosen socialBox;
+
+    private double inertiaValue;
+    private double cognitiveComponentValue;
+    private double socialComponentValue;
+    private int beginRange;
+    private int endRange;
 
     private int applicationDelay;
 
@@ -74,7 +82,6 @@ public class PSOSceneController {
     private void setFunctionName() {
         String functionName = StartingSceneController.getFunction() + " function";
         pso_function_name_text.setText(functionName);
-
         checkFunctionType(functionName);
     }
 
@@ -89,5 +96,35 @@ public class PSOSceneController {
             System.out.println("Check function type error.");
     }
 
+    private void checkRadioboxes() {
+        if (inertia_own_radio.isSelected())
+            inertiaValue = Double.parseDouble(pso_own_inertia_textfield.getText());
+        else
+            inertiaValue = SwarmAlgorithm.getDefaultInertia();
+
+        if (cognitive_own_radio.isSelected())
+            cognitiveComponentValue = Double.parseDouble(pso_own_cognitive_textfield.getText());
+        else
+            cognitiveComponentValue = SwarmAlgorithm.getDefaultCognitive();
+
+        if (social_own_radio.isSelected())
+            socialComponentValue = Double.parseDouble(pso_own_social_textfield.getText());
+        else
+            socialComponentValue = SwarmAlgorithm.getDefaultSocial();
+
+        if (field_range_50_radio.isSelected()) {
+            beginRange = 0;
+            endRange = 51;
+        } else if (field_range_100_radio.isSelected()) {
+            beginRange = -50;
+            endRange = 51;
+        } else if (field_range_150_radio.isSelected()) {
+            beginRange = -50;
+            endRange = 101;
+        } else if (field_range_200_radio.isSelected()) {
+            beginRange = SwarmAlgorithm.getDefaultBeginRange();
+            endRange = SwarmAlgorithm.getDefaultBeginRange();
+        }
+    }
 
 }

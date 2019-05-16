@@ -14,9 +14,9 @@ public class StartingOperations {
             System.out.print("Use the parameter '-p' to change the inertia, ");
             System.out.println("cognitive and social components.");
             System.out.println("Otherwise the default values will be: ");
-            System.out.println("Inertia:             " + SwarmAlgorithm.DEFAULT_INERTIA);
-            System.out.println("Cognitive Component: " + SwarmAlgorithm.DEFAULT_COGNITIVE);
-            System.out.println("Social Component:    " + SwarmAlgorithm.DEFAULT_SOCIAL);
+            System.out.println("Inertia:             " + SwarmAlgorithm.getDefaultInertia());
+            System.out.println("Cognitive Component: " + SwarmAlgorithm.getDefaultCognitive());
+            System.out.println("Social Component:    " + SwarmAlgorithm.getDefaultSocial());
             menu(false);
         }
     }
