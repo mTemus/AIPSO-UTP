@@ -54,9 +54,24 @@ public class PSOSceneController {
     private int particlesAmount;
     private int epochsAmount;
     private int applicationDelay;
+    private boolean dataCollectedProperly = false;
 
 
     public void saveSettings(ActionEvent event) {
+        checkRadioboxes();
+        setParticlesAmount();
+        setEpochsAmount();
+
+        System.out.println(fieldsFilledProperly());
+
+        if (!fieldsFilledProperly())
+            pso_fields_error_text.setVisible(true);
+        else {
+            pso_fields_error_text.setVisible(false);
+            dataCollectedProperly = true;
+        }
+
+        System.out.println(dataCollectedProperly);
     }
 
     public void changeFunction(ActionEvent event) {
@@ -70,13 +85,15 @@ public class PSOSceneController {
     }
 
     private void setFunctionName() {
-        String functionName = StartingSceneController.getFunction() + " function";
-        pso_function_name_text.setText(functionName);
+        String functionName = StartingSceneController.getFunction();
+        pso_function_name_text.setText(functionName + " function");
         setFunction(functionName);
 
     }
 
     private void setFunction(String functionName) {
+        System.out.println(functionName);
+
         if (functionName.equals("Ackley"))
             function = Particle.FunctionType.Ackleys;
         else if (functionName.equals("Booth"))
@@ -130,15 +147,26 @@ public class PSOSceneController {
     }
 
     private boolean fieldsFilledProperly() {
-        return inertiaValue != 0 || cognitiveComponentValue != 0 || socialComponentValue != 0;
+        System.out.println(inertiaValue);
+        System.out.println(cognitiveComponentValue);
+        System.out.println(socialComponentValue);
+        System.out.println(particlesAmount);
+        System.out.println(particlesAmount);
+        System.out.println(epochsAmount);
+
+        return inertiaValue != 0 && cognitiveComponentValue != 0 && socialComponentValue != 0 && particlesAmount != 0 && epochsAmount != 0;
     }
 
     private void setParticlesAmount() {
-        particlesAmount = Integer.parseInt(pso_particles_amount_textfield.getText());
+        String particles = pso_particles_amount_textfield.getText();
+        if (!particles.equals(""))
+            particlesAmount = Integer.parseInt(particles);
     }
 
     private void setEpochsAmount() {
-        epochsAmount = Integer.parseInt(pso_number_of_epochs_textfield.getText());
+        String epochs = pso_number_of_epochs_textfield.getText();
+        if (!epochs.equals(""))
+            epochsAmount = Integer.parseInt(epochs);
     }
 
 
