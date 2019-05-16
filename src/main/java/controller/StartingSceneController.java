@@ -23,11 +23,11 @@ public class StartingSceneController {
         String chosenFunction = (String) starting_functions_combobox.getValue();
 
         if (chosenFunction.equals("Ackley function"))
-            function = "ackley";
+            function = "Ackley";
         else if (chosenFunction.equals("Booth function"))
-            function = "booth";
+            function = "Booth";
         else if (chosenFunction.equals("Three-hump camel function"))
-            function = "camel";
+            function = "Camel";
     }
 
     public void startApplication(ActionEvent event) {

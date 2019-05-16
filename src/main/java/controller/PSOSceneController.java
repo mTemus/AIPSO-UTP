@@ -37,6 +37,10 @@ public class PSOSceneController {
     public RadioButton delay_1500_radio;
     public Button pso_change_function_button;
     public Button pso_start_button;
+    public Text pso_current_best_evaluation_text;
+    public Text pso_global_best_evaluation_text;
+    public Text pso_x_value_text;
+    public Text pso_y_value_text;
 
     public void saveSettings(ActionEvent event) {
     }
@@ -52,7 +56,7 @@ public class PSOSceneController {
     }
 
     private void setFunctionName() {
-        String functionName = StartingSceneController.getFunction();
+        String functionName = StartingSceneController.getFunction() + " function";
         pso_function_name_text.setText(functionName);
     }
 }
