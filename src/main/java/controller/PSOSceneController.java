@@ -76,7 +76,7 @@ public class PSOSceneController {
     public void startPSOApplication(ActionEvent event) throws InterruptedException {
         if (dataCollectedProperly) {
             SwarmAlgorithm swarm = new SwarmAlgorithm(function, particlesAmount, epochsAmount,
-                    inertiaValue, cognitiveComponentValue, socialComponentValue);
+                    inertiaValue, cognitiveComponentValue, socialComponentValue, applicationDelay);
             swarm.run();
         }
     }

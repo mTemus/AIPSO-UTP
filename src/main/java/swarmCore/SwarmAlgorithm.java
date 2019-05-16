@@ -9,6 +9,7 @@ public class SwarmAlgorithm {
     private Vector bestPosition;
     private double bestEval;
     private Particle.FunctionType function; // The function to search.
+    private int applicationDelay;
     private static final double DEFAULT_INERTIA = 0.729844;
     private static final double DEFAULT_COGNITIVE = 1.496180; // Cognitive component.
     private static final double DEFAULT_SOCIAL = 1.496180; // Social component.
@@ -24,16 +25,6 @@ public class SwarmAlgorithm {
     private static final int DEFAULT_END_RANGE = 101;
 
     /**
-     * Construct the Swarm with default values.
-     *
-     * @param particles the number of particles to create
-     * @param epochs    the number of generations
-     */
-    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs) {
-        this(function, particles, epochs, DEFAULT_INERTIA, DEFAULT_COGNITIVE, DEFAULT_SOCIAL);
-    }
-
-    /**
      * Construct the Swarm with custom values.
      *
      * @param particles the number of particles to create
@@ -41,14 +32,16 @@ public class SwarmAlgorithm {
      * @param inertia   the particles resistance to change
      * @param cognitive the cognitive component or introversion of the particle
      * @param social    the social component or extroversion of the particle
+     * @param applicationDelay the speed of the swarm algorithm
      */
-    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social) {
+    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int applicationDelay) {
         this.numOfParticles = particles;
         this.epochs = epochs;
         this.inertia = inertia;
         this.cognitiveComponent = cognitive;
         this.socialComponent = social;
         this.function = function;
+        this.applicationDelay = applicationDelay;
         double infinity = Double.POSITIVE_INFINITY;
         bestPosition = new Vector(infinity, infinity, infinity);
         bestEval = Double.POSITIVE_INFINITY;
@@ -67,7 +60,7 @@ public class SwarmAlgorithm {
         System.out.println("Global Best Evaluation (Epoch " + 0 + "):\t" + bestEval);
 
         for (int i = 0; i < epochs; i++) {
-            Thread.sleep(200);
+            Thread.sleep(applicationDelay);
             if (bestEval < oldEval) {
                 System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
                 oldEval = bestEval;
