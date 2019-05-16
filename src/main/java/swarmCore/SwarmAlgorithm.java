@@ -1,5 +1,7 @@
 package swarmCore;
 
+import controller.PSOSceneController;
+
 import java.util.Random;
 
 public class SwarmAlgorithm {
@@ -10,6 +12,7 @@ public class SwarmAlgorithm {
     private double bestEval;
     private Particle.FunctionType function; // The function to search.
     private int applicationDelay;
+    private String algorithmTextLog = "";
     private static final double DEFAULT_INERTIA = 0.729844;
     private static final double DEFAULT_COGNITIVE = 1.496180; // Cognitive component.
     private static final double DEFAULT_SOCIAL = 1.496180; // Social component.
@@ -27,14 +30,14 @@ public class SwarmAlgorithm {
     /**
      * Construct the Swarm with custom values.
      *
-     * @param particles the number of particles to create
-     * @param epochs    the number of generations
-     * @param inertia   the particles resistance to change
-     * @param cognitive the cognitive component or introversion of the particle
-     * @param social    the social component or extroversion of the particle
+     * @param particles        the number of particles to create
+     * @param epochs           the number of generations
+     * @param inertia          the particles resistance to change
+     * @param cognitive        the cognitive component or introversion of the particle
+     * @param social           the social component or extroversion of the particle
      * @param applicationDelay the speed of the swarm algorithm
      */
-    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int applicationDelay) {
+    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int applicationDelay, int beginRange, int endRange) {
         this.numOfParticles = particles;
         this.epochs = epochs;
         this.inertia = inertia;
@@ -45,8 +48,8 @@ public class SwarmAlgorithm {
         double infinity = Double.POSITIVE_INFINITY;
         bestPosition = new Vector(infinity, infinity, infinity);
         bestEval = Double.POSITIVE_INFINITY;
-        beginRange = DEFAULT_BEGIN_RANGE;
-        endRange = DEFAULT_END_RANGE;
+        this.beginRange = beginRange;
+        this.endRange = endRange;
     }
 
     /**
@@ -54,6 +57,7 @@ public class SwarmAlgorithm {
      */
     public void run() throws InterruptedException {
         Particle[] particles = initialize();
+        String s = "";
 
         double oldEval = bestEval;
         System.out.println("--------------------------EXECUTING-------------------------");
@@ -62,10 +66,10 @@ public class SwarmAlgorithm {
         for (int i = 0; i < epochs; i++) {
             Thread.sleep(applicationDelay);
             if (bestEval < oldEval) {
-                System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
+                s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
                 oldEval = bestEval;
             } else if (i != 0)
-                System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
+                s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
 
             for (Particle p : particles) {
                 p.updatePersonalBest();
@@ -76,6 +80,8 @@ public class SwarmAlgorithm {
                 updateVelocity(p);
                 p.updatePosition();
             }
+
+            setViewFields(s, oldEval);
         }
 
         System.out.println("---------------------------RESULT---------------------------");
@@ -149,6 +155,21 @@ public class SwarmAlgorithm {
         particle.setVelocity(newVelocity);
     }
 
+    private void setViewFields(String s, double oldEval) {
+        algorithmTextLog += s;
+
+        PSOSceneController.pso_current_best_evaluation_text.setVisible(true);
+        PSOSceneController.pso_global_best_evaluation_text.setVisible(true);
+        PSOSceneController.pso_x_value_text.setVisible(true);
+        PSOSceneController.pso_y_value_text.setVisible(true);
+
+        PSOSceneController.pso_current_best_evaluation_text.setText(Double.valueOf(oldEval).toString());
+        PSOSceneController.pso_global_best_evaluation_text.setText(Double.valueOf(bestEval).toString());
+        PSOSceneController.pso_x_value_text.setText(Double.valueOf(bestPosition.getX()).toString());
+        PSOSceneController.pso_y_value_text.setText(Double.valueOf(bestPosition.getY()).toString());
+        PSOSceneController.pso_swarm_text_log_textarea.setText(algorithmTextLog);
+
+    }
 
     public static double getDefaultInertia() {
         return DEFAULT_INERTIA;

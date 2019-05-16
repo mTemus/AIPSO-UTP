@@ -11,7 +11,7 @@ public class PSOSceneController {
     public Text pso_function_name_text;
     public ProgressBar pso_swarm_progressbar;
     public Button pso_save_settings_button;
-    public TextArea pso_swarm_text_log_textarea;
+    public static TextArea pso_swarm_text_log_textarea;
     public RadioButton field_range_50_radio;
     public ToggleGroup field_range;
     public RadioButton field_range_100_radio;
@@ -39,10 +39,10 @@ public class PSOSceneController {
     public RadioButton delay_1500_radio;
     public Button pso_change_function_button;
     public Button pso_start_button;
-    public Text pso_current_best_evaluation_text;
-    public Text pso_global_best_evaluation_text;
-    public Text pso_x_value_text;
-    public Text pso_y_value_text;
+    public static Text pso_current_best_evaluation_text;
+    public static Text pso_global_best_evaluation_text;
+    public static Text pso_x_value_text;
+    public static Text pso_y_value_text;
     public Text pso_fields_error_text;
 
     private Particle.FunctionType function;
@@ -76,7 +76,8 @@ public class PSOSceneController {
     public void startPSOApplication(ActionEvent event) throws InterruptedException {
         if (dataCollectedProperly) {
             SwarmAlgorithm swarm = new SwarmAlgorithm(function, particlesAmount, epochsAmount,
-                    inertiaValue, cognitiveComponentValue, socialComponentValue, applicationDelay);
+                    inertiaValue, cognitiveComponentValue, socialComponentValue,
+                    applicationDelay, beginRange, endRange);
             swarm.run();
         }
     }
@@ -130,7 +131,7 @@ public class PSOSceneController {
             endRange = 101;
         } else if (field_range_200_radio.isSelected()) {
             beginRange = SwarmAlgorithm.getDefaultBeginRange();
-            endRange = SwarmAlgorithm.getDefaultBeginRange();
+            endRange = SwarmAlgorithm.getDefaultEndRange();
         }
 
         if (delay_0_radio.isSelected())
