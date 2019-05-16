@@ -53,11 +53,11 @@ public class PSOSceneController {
     }
 
     private FunctionType currentFunctionType;
-    private RadioChosen interiaBox;
+    private RadioChosen inertiaBox;
     private RadioChosen cognitiveBox;
     private RadioChosen socialBox;
 
-    private double inertiaValue;
+    private double inertiaValue = Double.parseDouble(null);
     private double cognitiveComponentValue;
     private double socialComponentValue;
     private int beginRange;
@@ -125,6 +125,21 @@ public class PSOSceneController {
             beginRange = SwarmAlgorithm.getDefaultBeginRange();
             endRange = SwarmAlgorithm.getDefaultBeginRange();
         }
+
+        if (delay_0_radio.isSelected())
+            applicationDelay = 0;
+        else if (delay_200_radio.isSelected())
+            applicationDelay = 200;
+        else if (delay_500_radio.isSelected())
+            applicationDelay = 500;
+        else if (delay_1000_radio.isSelected())
+            applicationDelay = 1000;
+        else if (delay_1500_radio.isSelected())
+            applicationDelay = 1500;
+    }
+
+    private boolean fieldsFilledProperly() {
+        return inertiaValue != 0 && cognitiveComponentValue != 0 && socialComponentValue != 0;
     }
 
 }
