@@ -88,8 +88,6 @@ public class PSOSceneController {
     }
 
     private void setFunction(String functionName) {
-        System.out.println(functionName);
-
         if (functionName.equals("Ackley"))
             function = Particle.FunctionType.Ackleys;
         else if (functionName.equals("Booth"))
