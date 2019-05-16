@@ -11,7 +11,7 @@ public class PSOSceneController {
     public Text pso_function_name_text;
     public ProgressBar pso_swarm_progressbar;
     public Button pso_save_settings_button;
-    public static TextArea pso_swarm_text_log_textarea;
+    public TextArea pso_swarm_text_log_textarea = new TextArea();
     public RadioButton field_range_50_radio;
     public ToggleGroup field_range;
     public RadioButton field_range_100_radio;
@@ -39,11 +39,11 @@ public class PSOSceneController {
     public RadioButton delay_1500_radio;
     public Button pso_change_function_button;
     public Button pso_start_button;
-    public static Text pso_current_best_evaluation_text;
-    public static Text pso_global_best_evaluation_text;
-    public static Text pso_x_value_text;
-    public static Text pso_y_value_text;
-    public Text pso_fields_error_text;
+    public Text pso_current_best_evaluation_text = new Text();
+    public Text pso_global_best_evaluation_text = new Text();
+    public static Text pso_x_value_text = new Text();
+    public Text pso_y_value_text = new Text();
+    public Text pso_fields_error_text = new Text();
 
     private Particle.FunctionType function;
     private double inertiaValue;
@@ -57,7 +57,7 @@ public class PSOSceneController {
     private boolean dataCollectedProperly = false;
 
 
-    public void saveSettings(ActionEvent event) {
+    public void saveSettings(ActionEvent event) throws InterruptedException {
         checkRadioboxes();
         setParticlesAmount();
         setEpochsAmount();
@@ -68,6 +68,12 @@ public class PSOSceneController {
             pso_fields_error_text.setVisible(false);
             dataCollectedProperly = true;
         }
+
+        Thread t = new Thread(()->{
+            for (int i = 0; i < 100; i++)
+                pso_x_value_text.setText(Integer.valueOf(i).toString());
+        });
+
     }
 
     public void changeFunction(ActionEvent event) {
@@ -78,7 +84,15 @@ public class PSOSceneController {
             SwarmAlgorithm swarm = new SwarmAlgorithm(function, particlesAmount, epochsAmount,
                     inertiaValue, cognitiveComponentValue, socialComponentValue,
                     applicationDelay, beginRange, endRange);
-            swarm.run();
+
+            Thread swarmThread = new Thread(()-> {
+                try {
+                    swarm.run();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+            swarmThread.start();
         }
     }
 
@@ -160,5 +174,45 @@ public class PSOSceneController {
         String epochs = pso_number_of_epochs_textfield.getText();
         if (!epochs.equals(""))
             epochsAmount = Integer.parseInt(epochs);
+    }
+
+    public Text getPso_current_best_evaluation_text() {
+        return pso_current_best_evaluation_text;
+    }
+
+    public void setPso_current_best_evaluation_text(Text pso_current_best_evaluation_text) {
+        this.pso_current_best_evaluation_text = pso_current_best_evaluation_text;
+    }
+
+    public Text getPso_global_best_evaluation_text() {
+        return pso_global_best_evaluation_text;
+    }
+
+    public void setPso_global_best_evaluation_text(Text pso_global_best_evaluation_text) {
+        this.pso_global_best_evaluation_text = pso_global_best_evaluation_text;
+    }
+
+    public Text getPso_x_value_text() {
+        return pso_x_value_text;
+    }
+
+    public void setPso_x_value_text(Text pso_x_value_text) {
+        this.pso_x_value_text = pso_x_value_text;
+    }
+
+    public Text getPso_y_value_text() {
+        return pso_y_value_text;
+    }
+
+    public void setPso_y_value_text(Text pso_y_value_text) {
+        this.pso_y_value_text = pso_y_value_text;
+    }
+
+    public TextArea getPso_swarm_text_log_textarea() {
+        return pso_swarm_text_log_textarea;
+    }
+
+    public void setPso_swarm_text_log_textarea(TextArea pso_swarm_text_log_textarea) {
+        this.pso_swarm_text_log_textarea = pso_swarm_text_log_textarea;
     }
 }

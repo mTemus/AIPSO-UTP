@@ -99,8 +99,8 @@
         </Button>
       <Text layoutX="14.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Global best evaluation:" />
       <Text layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current best evaluation:" />
-      <Text fx:id="pso_current_best_evaluation_text" layoutX="180.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(current best evaluation value)" visible="false" />
-      <Text fx:id="pso_global_best_evaluation_text" layoutX="180.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(global best evaluation value)" visible="false" />
+      <Text fx:id="pso_current_best_evaluation_text" layoutX="180.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(current best evaluation value)" />
+      <Text fx:id="pso_global_best_evaluation_text" layoutX="180.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(global best evaluation value)" />
       <Text layoutX="582.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best position y:" />
       <Text layoutX="582.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best position x:" />
       <Text layoutX="642.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*alpha">
@@ -108,8 +108,8 @@
             <Font size="9.0" />
          </font>
       </Text>
-      <Text fx:id="pso_x_value_text" layoutX="691.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(x value)" visible="false" />
-      <Text fx:id="pso_y_value_text" layoutX="691.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(y value)" visible="false" />
+      <Text fx:id="pso_x_value_text" layoutX="691.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(x value)" />
+      <Text fx:id="pso_y_value_text" layoutX="691.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(y value)" />
       <Text fx:id="pso_fields_error_text" fill="RED" layoutX="1195.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill fields properly and try again!" visible="false" />
     </children>
 </AnchorPane>

@@ -1,6 +1,7 @@
 package swarmCore;
 
 import controller.PSOSceneController;
+import javafx.scene.text.Text;
 
 import java.util.Random;
 
@@ -16,6 +17,8 @@ public class SwarmAlgorithm {
     private static final double DEFAULT_INERTIA = 0.729844;
     private static final double DEFAULT_COGNITIVE = 1.496180; // Cognitive component.
     private static final double DEFAULT_SOCIAL = 1.496180; // Social component.
+
+    PSOSceneController PSOSO = new PSOSceneController();
 
     /**
      * When Particles are created they are given a random position.
@@ -66,10 +69,14 @@ public class SwarmAlgorithm {
         for (int i = 0; i < epochs; i++) {
             Thread.sleep(applicationDelay);
             if (bestEval < oldEval) {
+                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n");
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
                 oldEval = bestEval;
-            } else if (i != 0)
+            } else if (i != 0){
+                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n");
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
+            }
+
 
             for (Particle p : particles) {
                 p.updatePersonalBest();
@@ -156,19 +163,22 @@ public class SwarmAlgorithm {
     }
 
     private void setViewFields(String s, double oldEval) {
-        algorithmTextLog += s;
+//        algorithmTextLog += s;
+//        Text text = new Text();
+//        text.setText(Double.valueOf(bestPosition.getX()).toString());
+//        PSOSO.setPso_y_value_text(text);
+//        System.out.println(text.getText());
 
-        PSOSceneController.pso_current_best_evaluation_text.setVisible(true);
-        PSOSceneController.pso_global_best_evaluation_text.setVisible(true);
-        PSOSceneController.pso_x_value_text.setVisible(true);
-        PSOSceneController.pso_y_value_text.setVisible(true);
-
-        PSOSceneController.pso_current_best_evaluation_text.setText(Double.valueOf(oldEval).toString());
-        PSOSceneController.pso_global_best_evaluation_text.setText(Double.valueOf(bestEval).toString());
-        PSOSceneController.pso_x_value_text.setText(Double.valueOf(bestPosition.getX()).toString());
-        PSOSceneController.pso_y_value_text.setText(Double.valueOf(bestPosition.getY()).toString());
-        PSOSceneController.pso_swarm_text_log_textarea.setText(algorithmTextLog);
-
+//        PSOSceneController.pso_current_best_evaluation_text.setVisible(true);
+//        PSOSceneController.pso_global_best_evaluation_text.setVisible(true);
+//        PSOSceneController.pso_x_value_text.setVisible(true);
+//        PSOSceneController.pso_y_value_text.setVisible(true);
+//
+//        PSOSceneController.pso_current_best_evaluation_text.setText(Double.valueOf(oldEval).toString());
+//        PSOSceneController.pso_global_best_evaluation_text.setText(Double.valueOf(bestEval).toString());
+//        PSOSceneController.pso_x_value_text.setText(Double.valueOf(bestPosition.getX()).toString());
+//        PSOSceneController.pso_y_value_text.setText(Double.valueOf(bestPosition.getY()).toString());
+//        PSOSceneController.pso_swarm_text_log_textarea.setText(algorithmTextLog);
     }
 
     public static double getDefaultInertia() {
