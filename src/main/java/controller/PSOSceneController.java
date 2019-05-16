@@ -62,16 +62,12 @@ public class PSOSceneController {
         setParticlesAmount();
         setEpochsAmount();
 
-        System.out.println(fieldsFilledProperly());
-
         if (!fieldsFilledProperly())
             pso_fields_error_text.setVisible(true);
         else {
             pso_fields_error_text.setVisible(false);
             dataCollectedProperly = true;
         }
-
-        System.out.println(dataCollectedProperly);
     }
 
     public void changeFunction(ActionEvent event) {
@@ -147,13 +143,6 @@ public class PSOSceneController {
     }
 
     private boolean fieldsFilledProperly() {
-        System.out.println(inertiaValue);
-        System.out.println(cognitiveComponentValue);
-        System.out.println(socialComponentValue);
-        System.out.println(particlesAmount);
-        System.out.println(particlesAmount);
-        System.out.println(epochsAmount);
-
         return inertiaValue != 0 && cognitiveComponentValue != 0 && socialComponentValue != 0 && particlesAmount != 0 && epochsAmount != 0;
     }
 
@@ -168,6 +157,4 @@ public class PSOSceneController {
         if (!epochs.equals(""))
             epochsAmount = Integer.parseInt(epochs);
     }
-
-
 }
