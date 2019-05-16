@@ -57,11 +57,13 @@ public class PSOSceneController {
     private RadioChosen cognitiveBox;
     private RadioChosen socialBox;
 
-    private double inertiaValue = Double.parseDouble(null);
+    private double inertiaValue;
     private double cognitiveComponentValue;
     private double socialComponentValue;
     private int beginRange;
     private int endRange;
+    private int particlesAmount;
+    private int epochsAmount;
 
     private int applicationDelay;
 
@@ -141,5 +143,14 @@ public class PSOSceneController {
     private boolean fieldsFilledProperly() {
         return inertiaValue != 0 && cognitiveComponentValue != 0 && socialComponentValue != 0;
     }
+
+    private void setParticlesAmount() {
+        particlesAmount = Integer.parseInt(pso_particles_amount_textfield.getText());
+    }
+
+    private void setEpochsAmount() {
+        epochsAmount = Integer.parseInt(pso_number_of_epochs_textfield.getText());
+    }
+
 
 }

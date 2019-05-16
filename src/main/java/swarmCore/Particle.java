@@ -58,13 +58,7 @@ public class Particle {
         position.set(x, y, z);
     }
 
-    /**
-     * Generate a random number between a certain range.
-     *
-     * @param beginRange the minimum value (inclusive)
-     * @param endRange   the maximum value (exclusive)
-     * @return the randomly generated value
-     */
+
     private static int rand(int beginRange, int endRange) {
         Random r = new java.util.Random();
         return r.nextInt(endRange - beginRange) + beginRange;
