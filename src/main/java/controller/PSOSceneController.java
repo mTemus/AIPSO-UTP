@@ -5,6 +5,10 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import swarmCore.Particle;
 import swarmCore.SwarmAlgorithm;
+import swarmCore.Vector;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PSOSceneController {
     public Text starting_authors_text;
@@ -56,6 +60,12 @@ public class PSOSceneController {
     private int applicationDelay;
     private boolean dataCollectedProperly = false;
 
+    private List<Vector> bestPositions = new ArrayList<>();
+    private List<Double> bestEvals = new ArrayList<>();
+    private List<Double> oldEvals = new ArrayList<>();
+    private List<String> algorithmTextLogs = new ArrayList<>();
+
+    SwarmAlgorithm swarm;
 
     public void saveSettings(ActionEvent event) throws InterruptedException {
         checkRadioboxes();
@@ -68,16 +78,6 @@ public class PSOSceneController {
             pso_fields_error_text.setVisible(false);
             dataCollectedProperly = true;
         }
-
-        Thread t = new Thread(()->{
-            for (int i = 0; i < 100; i++){
-                Text text = new Text();
-                text.setText(Integer.valueOf(i).toString());
-                setPso_x_value_text(text);
-                System.out.println(i);
-            }
-        });
-        t.start();
     }
 
     public void changeFunction(ActionEvent event) {
@@ -85,11 +85,11 @@ public class PSOSceneController {
 
     public void startPSOApplication(ActionEvent event) throws InterruptedException {
         if (dataCollectedProperly) {
-            SwarmAlgorithm swarm = new SwarmAlgorithm(function, particlesAmount, epochsAmount,
+            swarm = new SwarmAlgorithm(function, particlesAmount, epochsAmount,
                     inertiaValue, cognitiveComponentValue, socialComponentValue,
                     applicationDelay, beginRange, endRange);
-
             swarm.run();
+            getArrays();
         }
     }
 
@@ -173,43 +173,40 @@ public class PSOSceneController {
             epochsAmount = Integer.parseInt(epochs);
     }
 
-    public Text getPso_current_best_evaluation_text() {
-        return pso_current_best_evaluation_text;
+    private void getArrays() {
+        bestPositions = swarm.getBestPositions();
+        bestEvals = swarm.getBestEvals();
+        oldEvals = swarm.getOldEvals();
+        algorithmTextLogs = swarm.getAlgorithmTextLogs();
+        lookArrays();
     }
 
-    public void setPso_current_best_evaluation_text(Text pso_current_best_evaluation_text) {
-        this.pso_current_best_evaluation_text = pso_current_best_evaluation_text;
+    private void lookArrays() {
+
+        System.out.println("Best positions size: " + bestPositions.size());
+        System.out.println("Best evals size: " + bestEvals.size());
+        System.out.println("Old evals size: " + oldEvals.size());
+        System.out.println("Text log size: " + algorithmTextLogs.size());
+        System.out.println("---------------------------------------------------");
+
+        for (Vector v : bestPositions) {
+            System.out.println("Best position: " + v.toString());
+        }
+        System.out.println("---------------------------------------------------");
+
+        for (Double d : bestEvals) {
+            System.out.println("Best eval: " + d);
+        }
+        System.out.println("---------------------------------------------------");
+        for (Double d : oldEvals) {
+            System.out.println("Old eval: " + d);
+        }
+        System.out.println("---------------------------------------------------");
+
+        for (String s: algorithmTextLogs) {
+            System.out.println(s);
+        }
+
     }
 
-    public Text getPso_global_best_evaluation_text() {
-        return pso_global_best_evaluation_text;
-    }
-
-    public void setPso_global_best_evaluation_text(Text pso_global_best_evaluation_text) {
-        this.pso_global_best_evaluation_text = pso_global_best_evaluation_text;
-    }
-
-    public Text getPso_x_value_text() {
-        return pso_x_value_text;
-    }
-
-    public void setPso_x_value_text(Text pso_x_value_text) {
-        this.pso_x_value_text = pso_x_value_text;
-    }
-
-    public Text getPso_y_value_text() {
-        return pso_y_value_text;
-    }
-
-    public void setPso_y_value_text(Text pso_y_value_text) {
-        this.pso_y_value_text = pso_y_value_text;
-    }
-
-    public TextArea getPso_swarm_text_log_textarea() {
-        return pso_swarm_text_log_textarea;
-    }
-
-    public void setPso_swarm_text_log_textarea(TextArea pso_swarm_text_log_textarea) {
-        this.pso_swarm_text_log_textarea = pso_swarm_text_log_textarea;
-    }
 }

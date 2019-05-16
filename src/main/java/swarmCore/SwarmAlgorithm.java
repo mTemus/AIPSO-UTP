@@ -1,5 +1,7 @@
 package swarmCore;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class SwarmAlgorithm {
@@ -11,10 +13,10 @@ public class SwarmAlgorithm {
     private Particle.FunctionType function; // The function to search.
     private int applicationDelay;
 
-    private Vector[] bestPositions = new Vector[numOfParticles];
-    private double[] bestEvals = new double[numOfParticles];
-    private double[] oldEvals = new double[numOfParticles];
-    private String[] algorithmTextLogs = new String[epochs];
+    private List<Vector> bestPositions = new ArrayList<>();
+    private List<Double> bestEvals = new ArrayList<>();
+    private List<Double> oldEvals = new ArrayList<>();
+    private List<String> algorithmTextLogs = new ArrayList<>();
 
     private static final double DEFAULT_INERTIA = 0.729844;
     private static final double DEFAULT_COGNITIVE = 1.496180; // Cognitive component.
@@ -68,18 +70,18 @@ public class SwarmAlgorithm {
 
         for (int i = 0; i < epochs; i++) {
             Thread.sleep(applicationDelay);
-            bestPositions[i] = bestPosition;
-            oldEvals[i] = oldEval;
-            bestEvals[i] = bestEval;
+            bestPositions.add(bestPosition);
+            oldEvals.add(oldEval);
+            bestEvals.add(bestEval);
 
             if (bestEval < oldEval) {
                 System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n");
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
-                algorithmTextLogs[i] = s;
+                algorithmTextLogs.add(s);
                 oldEval = bestEval;
-            } else if (i != 0){
+            } else if (i != 0) {
                 System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n");
-                algorithmTextLogs[i] = s;
+                algorithmTextLogs.add(s);
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
             }
 
@@ -168,19 +170,19 @@ public class SwarmAlgorithm {
     }
 
 
-    public Vector[] getBestPositions() {
+    public List<Vector> getBestPositions() {
         return bestPositions;
     }
 
-    public double[] getBestEvals() {
+    public List<Double> getBestEvals() {
         return bestEvals;
     }
 
-    public double[] getOldEvals() {
+    public List<Double> getOldEvals() {
         return oldEvals;
     }
 
-    public String[] getAlgorithmTextLogs() {
+    public List<String> getAlgorithmTextLogs() {
         return algorithmTextLogs;
     }
 
@@ -283,4 +285,6 @@ public class SwarmAlgorithm {
     public static int getDefaultEndRange() {
         return DEFAULT_END_RANGE;
     }
+
+
 }
