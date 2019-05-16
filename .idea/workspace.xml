@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.3.8.5 (testing)">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.3.8.7 (testing)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <list id="069507e3-c7ad-429f-8ee9-a86e1b5f42fa" name="Defaultddd" comment="" />
     <ignored path="JavaFxApplication.iws" />
@@ -70,26 +68,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="91" column="24" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
+            <state relative-caret-position="545">
+              <caret line="208" selection-start-line="208" selection-end-line="208" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6594#6595#0" expanded="true" />
-                <element signature="e#6649#6650#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/Particle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2790#2791#0" expanded="true" />
-                <element signature="e#2833#2834#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,18 +80,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="312">
+              <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6653#6654#0" expanded="true" />
-                <element signature="e#6689#6690#0" expanded="true" />
-                <element signature="e#6727#6728#0" expanded="true" />
+                <element signature="e#6527#6528#0" expanded="true" />
+                <element signature="e#6563#6564#0" expanded="true" />
+                <element signature="e#6605#6606#0" expanded="true" />
+                <element signature="e#6637#6638#0" expanded="true" />
+                <element signature="e#6678#6679#0" expanded="true" />
+                <element signature="e#6709#6710#0" expanded="true" />
                 <element signature="e#6759#6760#0" expanded="true" />
-                <element signature="e#6796#6797#0" expanded="true" />
-                <element signature="e#6827#6828#0" expanded="true" />
-                <element signature="e#6873#6874#0" expanded="true" />
-                <element signature="e#6913#6914#0" expanded="true" />
+                <element signature="e#6799#6800#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -225,78 +207,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="functions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="swarmCore" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
@@ -448,7 +359,7 @@
       <workItem from="1557996100543" duration="5400000" />
       <workItem from="1558005769389" duration="5692000" />
       <workItem from="1558014908037" duration="6404000" />
-      <workItem from="1558027949818" duration="1083000" />
+      <workItem from="1558027949818" duration="2465000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.1">
       <created>1557848271755</created>
@@ -632,11 +543,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558021628837</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="v0.3.8.6 (testing)">
+      <created>1558029080038</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1558029080039</updated>
+    </task>
+    <task id="LOCAL-00028" summary="v0.3.8.7 (testing)">
+      <created>1558030181364</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1558030181364</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36793000" />
+    <option name="totallyTimeSpent" value="38175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -651,7 +576,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -761,8 +686,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="v0.0.2" />
-    <MESSAGE value="v0.0.3" />
     <MESSAGE value="v0.0.4" />
     <MESSAGE value="v0.0.5" />
     <MESSAGE value="v0.1" />
@@ -786,7 +709,9 @@
     <MESSAGE value="v0.3.8.3" />
     <MESSAGE value="v0.3.8.4" />
     <MESSAGE value="v0.3.8.5 (testing)" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.3.8.5 (testing)" />
+    <MESSAGE value="v0.3.8.6 (testing)" />
+    <MESSAGE value="v0.3.8.7 (testing)" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.3.8.7 (testing)" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -882,8 +807,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/Particle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
+        <state relative-caret-position="148">
+          <caret line="80" column="22" lean-forward="true" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2790#2791#0" expanded="true" />
@@ -894,30 +819,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="91" column="24" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
+        <state relative-caret-position="545">
+          <caret line="208" selection-start-line="208" selection-end-line="208" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6594#6595#0" expanded="true" />
-            <element signature="e#6649#6650#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="312">
+          <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6653#6654#0" expanded="true" />
-            <element signature="e#6689#6690#0" expanded="true" />
-            <element signature="e#6727#6728#0" expanded="true" />
+            <element signature="e#6527#6528#0" expanded="true" />
+            <element signature="e#6563#6564#0" expanded="true" />
+            <element signature="e#6605#6606#0" expanded="true" />
+            <element signature="e#6637#6638#0" expanded="true" />
+            <element signature="e#6678#6679#0" expanded="true" />
+            <element signature="e#6709#6710#0" expanded="true" />
             <element signature="e#6759#6760#0" expanded="true" />
-            <element signature="e#6796#6797#0" expanded="true" />
-            <element signature="e#6827#6828#0" expanded="true" />
-            <element signature="e#6873#6874#0" expanded="true" />
-            <element signature="e#6913#6914#0" expanded="true" />
+            <element signature="e#6799#6800#0" expanded="true" />
           </folding>
         </state>
       </provider>

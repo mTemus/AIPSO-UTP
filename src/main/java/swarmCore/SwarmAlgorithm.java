@@ -75,14 +75,14 @@ public class SwarmAlgorithm {
             bestEvals.add(bestEval);
 
             if (bestEval < oldEval) {
-                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n");
-                s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
+                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval);
+                s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
                 algorithmTextLogs.add(s);
                 oldEval = bestEval;
-            } else if (i != 0) {
-                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n");
+            } else {
+                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval );
+                s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
                 algorithmTextLogs.add(s);
-                s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
             }
 
 
