@@ -94,7 +94,7 @@ public class SwarmAlgorithm {
     }
 
     /**
-     * Create a set of particles, each with random starting positions.
+     * Create a setCoordinates of particles, each with random starting positions.
      *
      * @return an array of particles
      */
@@ -128,9 +128,9 @@ public class SwarmAlgorithm {
      */
     private void updateVelocity(Particle particle) {
         Vector oldVelocity = particle.getVelocity();
-        Vector pBest = particle.getBestPosition();
-        Vector gBest = bestPosition.clone();
-        Vector pos = particle.getPosition();
+        Vector particleBestPosition = particle.getBestPosition();
+        Vector globalBestPosition = bestPosition.clone();
+        Vector position = particle.getPosition();
 
         Random random = new Random();
         double r1 = random.nextDouble();
@@ -138,19 +138,19 @@ public class SwarmAlgorithm {
 
         // The first product of the formula.
         Vector newVelocity = oldVelocity.clone();
-        newVelocity.mul(inertia);
+        newVelocity.multipleCoordinates(inertia);
 
         // The second product of the formula.
-        pBest.sub(pos);
-        pBest.mul(cognitiveComponent);
-        pBest.mul(r1);
-        newVelocity.add(pBest);
+        particleBestPosition.subtractCoordinates(position);
+        particleBestPosition.multipleCoordinates(cognitiveComponent);
+        particleBestPosition.multipleCoordinates(r1);
+        newVelocity.addCoordinates(particleBestPosition);
 
         // The third product of the formula.
-        gBest.sub(pos);
-        gBest.mul(socialComponent);
-        gBest.mul(r2);
-        newVelocity.add(gBest);
+        globalBestPosition.subtractCoordinates(position);
+        globalBestPosition.multipleCoordinates(socialComponent);
+        globalBestPosition.multipleCoordinates(r2);
+        newVelocity.addCoordinates(globalBestPosition);
 
         particle.setVelocity(newVelocity);
     }

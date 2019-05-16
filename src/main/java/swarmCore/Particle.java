@@ -55,7 +55,7 @@ public class Particle {
         int x = rand(beginRange, endRange);
         int y = rand(beginRange, endRange);
         int z = rand(beginRange, endRange);
-        position.set(x, y, z);
+        position.setCoordinates(x, y, z);
     }
 
 
@@ -82,7 +82,7 @@ public class Particle {
     }
 
     void updatePosition() {
-        this.position.add(velocity);
+        this.position.addCoordinates(velocity);
     }
 
     public Vector getPosition() {

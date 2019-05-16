@@ -1,8 +1,5 @@
 package swarmCore;
 
-/**
- * Can represent a position as well as a velocity.
- */
 public class Vector {
 
     private double x, y, z;
@@ -19,57 +16,35 @@ public class Vector {
     }
 
 
-
-    void set(double x, double y, double z) {
+    void setCoordinates(double x, double y, double z) {
         setX(x);
         setY(y);
         setZ(z);
     }
 
-    void add(Vector v) {
+    void addCoordinates(Vector v) {
         x += v.x;
         y += v.y;
         z += v.z;
         limit();
     }
 
-    void sub(Vector v) {
+    void subtractCoordinates(Vector v) {
         x -= v.x;
         y -= v.y;
         z -= v.z;
         limit();
     }
 
-    void mul(double s) {
+    void multipleCoordinates(double s) {
         x *= s;
         y *= s;
         z *= s;
         limit();
     }
 
-    void div(double s) {
-        x /= s;
-        y /= s;
-        z /= s;
-        limit();
-    }
-
-    void normalize() {
-        double m = mag();
-        if (m > 0) {
-            x /= m;
-            y /= m;
-            z /= m;
-        }
-    }
-
     private double mag() {
         return Math.sqrt(x * x + y * y);
-    }
-
-    void limit(double l) {
-        limit = l;
-        limit();
     }
 
     private void limit() {
