@@ -3,6 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import swarmCore.Particle;
 import swarmCore.SwarmAlgorithm;
 
 public class PSOSceneController {
@@ -44,19 +45,7 @@ public class PSOSceneController {
     public Text pso_y_value_text;
     public Text pso_fields_error_text;
 
-    private enum FunctionType {
-        ACKLEY, BOOTH, CAMEL
-    }
-
-    private enum RadioChosen {
-        DEFAULT, OWN
-    }
-
-    private FunctionType currentFunctionType;
-    private RadioChosen inertiaBox;
-    private RadioChosen cognitiveBox;
-    private RadioChosen socialBox;
-
+    private Particle.FunctionType function;
     private double inertiaValue;
     private double cognitiveComponentValue;
     private double socialComponentValue;
@@ -64,7 +53,6 @@ public class PSOSceneController {
     private int endRange;
     private int particlesAmount;
     private int epochsAmount;
-
     private int applicationDelay;
 
 
@@ -84,16 +72,17 @@ public class PSOSceneController {
     private void setFunctionName() {
         String functionName = StartingSceneController.getFunction() + " function";
         pso_function_name_text.setText(functionName);
-        checkFunctionType(functionName);
+        setFunction(functionName);
+
     }
 
-    private void checkFunctionType(String functionName) {
+    private void setFunction(String functionName) {
         if (functionName.equals("Ackley"))
-            currentFunctionType = FunctionType.ACKLEY;
+            function = Particle.FunctionType.Ackleys;
         else if (functionName.equals("Booth"))
-            currentFunctionType = FunctionType.BOOTH;
+            function = Particle.FunctionType.Booths;
         else if (functionName.equals("Camel"))
-            currentFunctionType = FunctionType.CAMEL;
+            function = Particle.FunctionType.ThreeHumpCamel;
         else
             System.out.println("Check function type error.");
     }
@@ -141,7 +130,7 @@ public class PSOSceneController {
     }
 
     private boolean fieldsFilledProperly() {
-        return inertiaValue != 0 && cognitiveComponentValue != 0 && socialComponentValue != 0;
+        return inertiaValue != 0 || cognitiveComponentValue != 0 || socialComponentValue != 0;
     }
 
     private void setParticlesAmount() {
