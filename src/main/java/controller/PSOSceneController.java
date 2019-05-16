@@ -11,7 +11,7 @@ public class PSOSceneController {
     public Text pso_function_name_text;
     public ProgressBar pso_swarm_progressbar;
     public Button pso_save_settings_button;
-    public TextArea pso_swarm_text_log_textarea = new TextArea();
+    public TextArea pso_swarm_text_log_textarea;
     public RadioButton field_range_50_radio;
     public ToggleGroup field_range;
     public RadioButton field_range_100_radio;
@@ -41,7 +41,7 @@ public class PSOSceneController {
     public Button pso_start_button;
     public Text pso_current_best_evaluation_text = new Text();
     public Text pso_global_best_evaluation_text = new Text();
-    public static Text pso_x_value_text = new Text();
+    public Text pso_x_value_text;
     public Text pso_y_value_text = new Text();
     public Text pso_fields_error_text = new Text();
 
@@ -70,10 +70,14 @@ public class PSOSceneController {
         }
 
         Thread t = new Thread(()->{
-            for (int i = 0; i < 100; i++)
-                pso_x_value_text.setText(Integer.valueOf(i).toString());
+            for (int i = 0; i < 100; i++){
+                Text text = new Text();
+                text.setText(Integer.valueOf(i).toString());
+                setPso_x_value_text(text);
+                System.out.println(i);
+            }
         });
-
+        t.start();
     }
 
     public void changeFunction(ActionEvent event) {
@@ -85,14 +89,7 @@ public class PSOSceneController {
                     inertiaValue, cognitiveComponentValue, socialComponentValue,
                     applicationDelay, beginRange, endRange);
 
-            Thread swarmThread = new Thread(()-> {
-                try {
-                    swarm.run();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
-            swarmThread.start();
+            swarm.run();
         }
     }
 

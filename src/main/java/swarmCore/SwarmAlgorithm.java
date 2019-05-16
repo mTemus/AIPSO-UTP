@@ -1,8 +1,5 @@
 package swarmCore;
 
-import controller.PSOSceneController;
-import javafx.scene.text.Text;
-
 import java.util.Random;
 
 public class SwarmAlgorithm {
@@ -13,12 +10,15 @@ public class SwarmAlgorithm {
     private double bestEval;
     private Particle.FunctionType function; // The function to search.
     private int applicationDelay;
-    private String algorithmTextLog = "";
+
+    private Vector[] bestPositions = new Vector[numOfParticles];
+    private double[] bestEvals = new double[numOfParticles];
+    private double[] oldEvals = new double[numOfParticles];
+    private String[] algorithmTextLogs = new String[epochs];
+
     private static final double DEFAULT_INERTIA = 0.729844;
     private static final double DEFAULT_COGNITIVE = 1.496180; // Cognitive component.
     private static final double DEFAULT_SOCIAL = 1.496180; // Social component.
-
-    PSOSceneController PSOSO = new PSOSceneController();
 
     /**
      * When Particles are created they are given a random position.
@@ -68,12 +68,18 @@ public class SwarmAlgorithm {
 
         for (int i = 0; i < epochs; i++) {
             Thread.sleep(applicationDelay);
+            bestPositions[i] = bestPosition;
+            oldEvals[i] = oldEval;
+            bestEvals[i] = bestEval;
+
             if (bestEval < oldEval) {
                 System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n");
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
+                algorithmTextLogs[i] = s;
                 oldEval = bestEval;
             } else if (i != 0){
                 System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n");
+                algorithmTextLogs[i] = s;
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval + "\n";
             }
 
@@ -88,7 +94,6 @@ public class SwarmAlgorithm {
                 p.updatePosition();
             }
 
-            setViewFields(s, oldEval);
         }
 
         System.out.println("---------------------------RESULT---------------------------");
@@ -162,23 +167,21 @@ public class SwarmAlgorithm {
         particle.setVelocity(newVelocity);
     }
 
-    private void setViewFields(String s, double oldEval) {
-//        algorithmTextLog += s;
-//        Text text = new Text();
-//        text.setText(Double.valueOf(bestPosition.getX()).toString());
-//        PSOSO.setPso_y_value_text(text);
-//        System.out.println(text.getText());
 
-//        PSOSceneController.pso_current_best_evaluation_text.setVisible(true);
-//        PSOSceneController.pso_global_best_evaluation_text.setVisible(true);
-//        PSOSceneController.pso_x_value_text.setVisible(true);
-//        PSOSceneController.pso_y_value_text.setVisible(true);
-//
-//        PSOSceneController.pso_current_best_evaluation_text.setText(Double.valueOf(oldEval).toString());
-//        PSOSceneController.pso_global_best_evaluation_text.setText(Double.valueOf(bestEval).toString());
-//        PSOSceneController.pso_x_value_text.setText(Double.valueOf(bestPosition.getX()).toString());
-//        PSOSceneController.pso_y_value_text.setText(Double.valueOf(bestPosition.getY()).toString());
-//        PSOSceneController.pso_swarm_text_log_textarea.setText(algorithmTextLog);
+    public Vector[] getBestPositions() {
+        return bestPositions;
+    }
+
+    public double[] getBestEvals() {
+        return bestEvals;
+    }
+
+    public double[] getOldEvals() {
+        return oldEvals;
+    }
+
+    public String[] getAlgorithmTextLogs() {
+        return algorithmTextLogs;
     }
 
     public static double getDefaultInertia() {
