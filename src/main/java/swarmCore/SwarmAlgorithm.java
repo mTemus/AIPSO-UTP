@@ -63,7 +63,7 @@ public class SwarmAlgorithm {
 
         double oldEval = bestEval;
         System.out.println("--------------------------EXECUTING-------------------------");
-        System.out.println("Global Best Evaluation (Epoch " + 0 + "):\t" + bestEval);
+//        System.out.println("Global Best Evaluation (Epoch " + 0 + "):\t" + bestEval);
 
         for (int i = 0; i < epochs; i++) {
             oldEvals.add(oldEval);
@@ -71,12 +71,12 @@ public class SwarmAlgorithm {
             bestEvals.add(bestEval);
 
             if (bestEval < oldEval) {
-                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval);
+//                System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
                 algorithmTextLogs.add(s);
                 oldEval = bestEval;
             } else {
-                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval);
+//                System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
                 algorithmTextLogs.add(s);
             }

@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
@@ -43,11 +45,11 @@ public class PSOSceneController {
     public RadioButton delay_1500_radio;
     public Button pso_change_function_button;
     public Button pso_start_button;
-    public Text pso_current_best_evaluation_text = new Text();
-    public Text pso_global_best_evaluation_text = new Text();
+    public Text pso_current_best_evaluation_text;
+    public Text pso_global_best_evaluation_text;
     public Text pso_x_value_text;
-    public Text pso_y_value_text = new Text();
-    public Text pso_fields_error_text = new Text();
+    public Text pso_y_value_text;
+    public Text pso_fields_error_text;
     public Text pso_current_epoch_number_text;
 
     private Particle.FunctionType function;
@@ -60,13 +62,14 @@ public class PSOSceneController {
     private int epochsAmount;
     private int applicationDelay;
     private boolean dataCollectedProperly = false;
+    private DoubleProperty algorithmProgress = new SimpleDoubleProperty(0);
 
     private List<Vector> bestPositions = new ArrayList<>();
-    private List<Double> bestEvals = new ArrayList<>();
-    private List<Double> oldEvals = new ArrayList<>();
+    private List<Double> bestEvaluations = new ArrayList<>();
+    private List<Double> oldEvaluations = new ArrayList<>();
     private List<String> algorithmTextLogs = new ArrayList<>();
 
-    SwarmAlgorithm swarm;
+    private SwarmAlgorithm swarm;
 
     public void saveSettings(ActionEvent event) throws InterruptedException {
         checkRadioboxes();
@@ -106,6 +109,7 @@ public class PSOSceneController {
 
     public void initialize() {
         setFunctionName();
+        pso_swarm_progressbar.progressProperty().bind(getAlgorithmProgress());
     }
 
     private void setFunctionName() {
@@ -192,17 +196,16 @@ public class PSOSceneController {
 
     private void getArrays() {
         bestPositions = swarm.getBestPositions();
-        bestEvals = swarm.getBestEvals();
-        oldEvals = swarm.getOldEvals();
+        bestEvaluations = swarm.getBestEvals();
+        oldEvaluations = swarm.getOldEvals();
         algorithmTextLogs = swarm.getAlgorithmTextLogs();
-        lookArrays();
     }
 
     private void lookArrays() {
 
         System.out.println("Best positions size: " + bestPositions.size());
-        System.out.println("Best evals size: " + bestEvals.size());
-        System.out.println("Old evals size: " + oldEvals.size());
+        System.out.println("Best evals size: " + bestEvaluations.size());
+        System.out.println("Old evals size: " + oldEvaluations.size());
         System.out.println("Text log size: " + algorithmTextLogs.size());
         System.out.println("---------------------------------------------------");
 
@@ -211,11 +214,11 @@ public class PSOSceneController {
         }
         System.out.println("---------------------------------------------------");
 
-        for (Double d : bestEvals) {
+        for (Double d : bestEvaluations) {
             System.out.println("Best eval: " + d);
         }
         System.out.println("---------------------------------------------------");
-        for (Double d : oldEvals) {
+        for (Double d : oldEvaluations) {
             System.out.println("Old eval: " + d);
         }
         System.out.println("---------------------------------------------------");
@@ -229,27 +232,49 @@ public class PSOSceneController {
     private void startApplication() throws InterruptedException {
         getArrays();
         setViewFields();
-
     }
 
     private void setViewFields() throws InterruptedException {
         String s = "";
         for (int i = 0; i < epochsAmount; i++) {
             Thread.sleep(applicationDelay);
-            pso_current_best_evaluation_text.setText(oldEvals.get(i).toString());
-            pso_global_best_evaluation_text.setText(bestEvals.get(i).toString());
+            setAlgorithmProgress(increaseProgress(i));
+            System.out.println(algorithmProgress.toString());
+
+            pso_current_best_evaluation_text.setText(bestEvaluations.get(i).toString());
+            pso_global_best_evaluation_text.setText(oldEvaluations.get(i).toString());
             pso_x_value_text.setText(Double.valueOf(bestPositions.get(i).getX()).toString());
             pso_y_value_text.setText(Double.valueOf(bestPositions.get(i).getY()).toString());
             s += algorithmTextLogs.get(i) + "\n";
             pso_swarm_text_log_textarea.setText(s);
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
 
-            if (bestEvals.get(i) == 0)
+            if (bestEvaluations.get(i) == 0) {
+                pso_global_best_evaluation_text.setText(bestEvaluations.get(i).toString());
+                algorithmProgress = new SimpleDoubleProperty(1);
                 break;
+            } else if (i == epochsAmount)
+                pso_global_best_evaluation_text.setText(bestEvaluations.get(i).toString());
+
 
         }
 
         pso_current_best_evaluation_text.setText("");
     }
 
+    private double increaseProgress(int i) {
+        double tmp_double = Double.valueOf(i / epochsAmount);
+        System.out.println("tmp_double: " + tmp_double);
+        System.out.println(i);
+        System.out.println(epochsAmount);
+        return tmp_double;
+    }
+
+    private DoubleProperty getAlgorithmProgress() {
+        return algorithmProgress;
+    }
+
+    public void setAlgorithmProgress(double algorithmProgress) {
+        this.algorithmProgress.set(algorithmProgress);
+    }
 }

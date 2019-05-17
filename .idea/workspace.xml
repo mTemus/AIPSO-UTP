@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.3.8.8">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.3.8.10">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PSOScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PSOScene.fxml" afterDir="false" />
     </list>
     <list id="069507e3-c7ad-429f-8ee9-a86e1b5f42fa" name="Defaultddd" comment="" />
     <ignored path="JavaFxApplication.iws" />
@@ -69,10 +70,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="101" column="32" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+            <state relative-caret-position="239">
+              <caret line="271" lean-forward="true" selection-start-line="271" selection-end-line="271" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#9605#9606#0" expanded="true" />
+                <element signature="e#9651#9652#0" expanded="true" />
+                <element signature="e#9944#9945#0" expanded="true" />
+                <element signature="e#10005#10006#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+            <state relative-caret-position="68">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -202,8 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,6 +243,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,7 +398,8 @@
       <workItem from="1558005769389" duration="5692000" />
       <workItem from="1558014908037" duration="6404000" />
       <workItem from="1558027949818" duration="3081000" />
-      <workItem from="1558070920526" duration="1635000" />
+      <workItem from="1558070920526" duration="3557000" />
+      <workItem from="1558077708720" duration="3106000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.1">
       <created>1557848271755</created>
@@ -598,17 +604,31 @@
       <option name="project" value="LOCAL" />
       <updated>1558030486143</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="v0.3.8.9">
+      <created>1558072738280</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1558072738281</updated>
+    </task>
+    <task id="LOCAL-00031" summary="v0.3.8.10">
+      <created>1558074645012</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1558074645012</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40426000" />
+    <option name="totallyTimeSpent" value="45454000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2409396" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2442953" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -617,7 +637,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -690,8 +710,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="v0.0.5" />
-    <MESSAGE value="v0.1" />
     <MESSAGE value="v0.2" />
     <MESSAGE value="v0.2.1" />
     <MESSAGE value="v0.2.2" />
@@ -715,7 +733,9 @@
     <MESSAGE value="v0.3.8.6 (testing)" />
     <MESSAGE value="v0.3.8.7 (testing)" />
     <MESSAGE value="v0.3.8.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.3.8.8" />
+    <MESSAGE value="v0.3.8.9" />
+    <MESSAGE value="v0.3.8.10" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.3.8.10" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -780,14 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/PSOScene.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="112" column="31" lean-forward="true" selection-start-line="112" selection-start-column="31" selection-end-line="112" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/operations/StartingOperations.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -821,10 +833,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/PSOScene.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="114" column="30" lean-forward="true" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+        <state relative-caret-position="68">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -833,10 +853,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="101" column="32" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+        <state relative-caret-position="239">
+          <caret line="271" lean-forward="true" selection-start-line="271" selection-end-line="271" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#9605#9606#0" expanded="true" />
+            <element signature="e#9651#9652#0" expanded="true" />
+            <element signature="e#9944#9945#0" expanded="true" />
+            <element signature="e#10005#10006#0" expanded="true" />
           </folding>
         </state>
       </provider>

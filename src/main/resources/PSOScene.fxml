@@ -33,7 +33,7 @@
             </font>
         </Text>
         <Text layoutX="1065.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Field range:" />
-        <TextArea fx:id="pso_swarm_text_log_textarea" layoutX="583.0" layoutY="326.0" prefHeight="550.0" prefWidth="459.0" />
+        <TextArea fx:id="pso_swarm_text_log_textarea" editable="false" layoutX="583.0" layoutY="326.0" prefHeight="550.0" prefWidth="459.0" />
         <Text layoutX="583.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text log:" />
         <RadioButton fx:id="field_range_50_radio" layoutX="1075.0" layoutY="152.0" mnemonicParsing="false" text="50x50">
             <toggleGroup>
