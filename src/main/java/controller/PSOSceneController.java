@@ -226,7 +226,6 @@ public class PSOSceneController {
         for (String s : algorithmTextLogs) {
             System.out.println(s);
         }
-
     }
 
     private void startApplication() throws InterruptedException {
@@ -239,7 +238,6 @@ public class PSOSceneController {
         for (int i = 0; i < epochsAmount; i++) {
             Thread.sleep(applicationDelay);
             setAlgorithmProgress(increaseProgress(i));
-            System.out.println(algorithmProgress.toString());
 
             pso_current_best_evaluation_text.setText(bestEvaluations.get(i).toString());
             pso_global_best_evaluation_text.setText(oldEvaluations.get(i).toString());
@@ -251,30 +249,30 @@ public class PSOSceneController {
 
             if (bestEvaluations.get(i) == 0) {
                 pso_global_best_evaluation_text.setText(bestEvaluations.get(i).toString());
-                algorithmProgress = new SimpleDoubleProperty(1);
+                setAlgorithmProgress(1d);
                 break;
             } else if (i == epochsAmount)
                 pso_global_best_evaluation_text.setText(bestEvaluations.get(i).toString());
-
-
         }
 
         pso_current_best_evaluation_text.setText("");
     }
 
     private double increaseProgress(int i) {
-        double tmp_double = Double.valueOf(i / epochsAmount);
-        System.out.println("tmp_double: " + tmp_double);
-        System.out.println(i);
-        System.out.println(epochsAmount);
-        return tmp_double;
+        double double_i = (double) i;
+        double double_epochs = (double) epochsAmount;
+
+        if (i == epochsAmount - 1)
+            return 1;
+
+        return double_i / double_epochs;
     }
 
     private DoubleProperty getAlgorithmProgress() {
         return algorithmProgress;
     }
 
-    public void setAlgorithmProgress(double algorithmProgress) {
+    private void setAlgorithmProgress(double algorithmProgress) {
         this.algorithmProgress.set(algorithmProgress);
     }
 }
