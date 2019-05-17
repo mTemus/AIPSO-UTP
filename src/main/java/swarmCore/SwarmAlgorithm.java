@@ -11,7 +11,6 @@ public class SwarmAlgorithm {
     private Vector bestPosition;
     private double bestEval;
     private Particle.FunctionType function; // The function to search.
-    private int applicationDelay;
 
     private List<Vector> bestPositions = new ArrayList<>();
     private List<Double> bestEvals = new ArrayList<>();
@@ -40,16 +39,14 @@ public class SwarmAlgorithm {
      * @param inertia          the particles resistance to change
      * @param cognitive        the cognitive component or introversion of the particle
      * @param social           the social component or extroversion of the particle
-     * @param applicationDelay the speed of the swarm algorithm
      */
-    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int applicationDelay, int beginRange, int endRange) {
+    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int beginRange, int endRange) {
         this.numOfParticles = particles;
         this.epochs = epochs;
         this.inertia = inertia;
         this.cognitiveComponent = cognitive;
         this.socialComponent = social;
         this.function = function;
-        this.applicationDelay = applicationDelay;
         double infinity = Double.POSITIVE_INFINITY;
         bestPosition = new Vector(infinity, infinity, infinity);
         bestEval = Double.POSITIVE_INFINITY;
@@ -69,7 +66,6 @@ public class SwarmAlgorithm {
         System.out.println("Global Best Evaluation (Epoch " + 0 + "):\t" + bestEval);
 
         for (int i = 0; i < epochs; i++) {
-            Thread.sleep(applicationDelay);
             bestPositions.add(bestPosition);
             oldEvals.add(oldEval);
             bestEvals.add(bestEval);
