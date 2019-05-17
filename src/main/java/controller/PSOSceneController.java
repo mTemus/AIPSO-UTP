@@ -39,7 +39,7 @@ public class PSOSceneController {
     public ToggleGroup delay;
     public RadioButton delay_500_radio;
     public RadioButton delay_200_radio;
-    public RadioButton delay_0_radio;
+    public RadioButton delay_25_radio;
     public RadioButton delay_1500_radio;
     public Button pso_change_function_button;
     public Button pso_start_button;
@@ -48,6 +48,7 @@ public class PSOSceneController {
     public Text pso_x_value_text;
     public Text pso_y_value_text = new Text();
     public Text pso_fields_error_text = new Text();
+    public Text pso_current_epoch_number_text;
 
     private Particle.FunctionType function;
     private double inertiaValue;
@@ -92,7 +93,7 @@ public class PSOSceneController {
                     beginRange, endRange);
             swarm.run();
 
-            Thread swarmThread = new Thread(()-> {
+            Thread swarmThread = new Thread(() -> {
                 try {
                     startApplication();
                 } catch (InterruptedException e) {
@@ -115,14 +116,20 @@ public class PSOSceneController {
     }
 
     private void setFunction(String functionName) {
-        if (functionName.equals("Ackley"))
-            function = Particle.FunctionType.Ackleys;
-        else if (functionName.equals("Booth"))
-            function = Particle.FunctionType.Booths;
-        else if (functionName.equals("Camel"))
-            function = Particle.FunctionType.ThreeHumpCamel;
-        else
-            System.out.println("Check function type error.");
+        switch (functionName) {
+            case "Ackley":
+                function = Particle.FunctionType.Ackleys;
+                break;
+            case "Booth":
+                function = Particle.FunctionType.Booths;
+                break;
+            case "Camel":
+                function = Particle.FunctionType.ThreeHumpCamel;
+                break;
+            default:
+                System.out.println("Check function type error.");
+                break;
+        }
     }
 
     private void checkRadioboxes() {
@@ -155,8 +162,8 @@ public class PSOSceneController {
             endRange = SwarmAlgorithm.getDefaultEndRange();
         }
 
-        if (delay_0_radio.isSelected())
-            applicationDelay = 0;
+        if (delay_25_radio.isSelected())
+            applicationDelay = 25;
         else if (delay_200_radio.isSelected())
             applicationDelay = 200;
         else if (delay_500_radio.isSelected())
@@ -221,21 +228,28 @@ public class PSOSceneController {
 
     private void startApplication() throws InterruptedException {
         getArrays();
+        setViewFields();
+
+    }
+
+    private void setViewFields() throws InterruptedException {
         String s = "";
-        for (int i = 0; i < epochsAmount - 1; i++) {
+        for (int i = 0; i < epochsAmount; i++) {
             Thread.sleep(applicationDelay);
             pso_current_best_evaluation_text.setText(oldEvals.get(i).toString());
             pso_global_best_evaluation_text.setText(bestEvals.get(i).toString());
             pso_x_value_text.setText(Double.valueOf(bestPositions.get(i).getX()).toString());
             pso_y_value_text.setText(Double.valueOf(bestPositions.get(i).getY()).toString());
-            s += algorithmTextLogs.get(i);
+            s += algorithmTextLogs.get(i) + "\n";
             pso_swarm_text_log_textarea.setText(s);
+            pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
+
+            if (bestEvals.get(i) == 0)
+                break;
+
         }
 
-    }
-
-    private void setViewFields() {
-
+        pso_current_best_evaluation_text.setText("");
     }
 
 }

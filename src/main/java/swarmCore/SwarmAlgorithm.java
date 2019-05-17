@@ -34,11 +34,11 @@ public class SwarmAlgorithm {
     /**
      * Construct the Swarm with custom values.
      *
-     * @param particles        the number of particles to create
-     * @param epochs           the number of generations
-     * @param inertia          the particles resistance to change
-     * @param cognitive        the cognitive component or introversion of the particle
-     * @param social           the social component or extroversion of the particle
+     * @param particles the number of particles to create
+     * @param epochs    the number of generations
+     * @param inertia   the particles resistance to change
+     * @param cognitive the cognitive component or introversion of the particle
+     * @param social    the social component or extroversion of the particle
      */
     public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int beginRange, int endRange) {
         this.numOfParticles = particles;
@@ -66,8 +66,8 @@ public class SwarmAlgorithm {
         System.out.println("Global Best Evaluation (Epoch " + 0 + "):\t" + bestEval);
 
         for (int i = 0; i < epochs; i++) {
-            bestPositions.add(bestPosition);
             oldEvals.add(oldEval);
+            bestPositions.add(bestPosition);
             bestEvals.add(bestEval);
 
             if (bestEval < oldEval) {
@@ -76,7 +76,7 @@ public class SwarmAlgorithm {
                 algorithmTextLogs.add(s);
                 oldEval = bestEval;
             } else {
-                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval );
+                System.out.println("Global Best Evaluation (Epoch " + (i) + "):" + bestEval);
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
                 algorithmTextLogs.add(s);
             }
@@ -91,7 +91,6 @@ public class SwarmAlgorithm {
                 updateVelocity(p);
                 p.updatePosition();
             }
-
         }
 
         System.out.println("---------------------------RESULT---------------------------");

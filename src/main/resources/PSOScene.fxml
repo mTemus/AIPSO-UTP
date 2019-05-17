@@ -33,7 +33,7 @@
             </font>
         </Text>
         <Text layoutX="1065.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Field range:" />
-        <TextArea fx:id="pso_swarm_text_log_textarea" layoutX="583.0" layoutY="326.0" prefHeight="550.0" prefWidth="350.0" />
+        <TextArea fx:id="pso_swarm_text_log_textarea" layoutX="583.0" layoutY="326.0" prefHeight="550.0" prefWidth="459.0" />
         <Text layoutX="583.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text log:" />
         <RadioButton fx:id="field_range_50_radio" layoutX="1075.0" layoutY="152.0" mnemonicParsing="false" text="50x50">
             <toggleGroup>
@@ -89,18 +89,18 @@
         </RadioButton>
         <RadioButton fx:id="delay_500_radio" layoutX="1259.0" layoutY="601.0" mnemonicParsing="false" text="500 ms" toggleGroup="$delay" />
         <RadioButton fx:id="delay_200_radio" layoutX="1165.0" layoutY="601.0" mnemonicParsing="false" text="200 ms" toggleGroup="$delay" />
-        <RadioButton fx:id="delay_0_radio" layoutX="1077.0" layoutY="601.0" mnemonicParsing="false" selected="true" text="0 ms" toggleGroup="$delay" />
+        <RadioButton fx:id="delay_25_radio" layoutX="1077.0" layoutY="601.0" mnemonicParsing="false" selected="true" text="25 ms" toggleGroup="$delay" />
         <RadioButton fx:id="delay_1500_radio" layoutX="1459.0" layoutY="601.0" mnemonicParsing="false" text="1500 ms" toggleGroup="$delay" />
         <Button fx:id="pso_change_function_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onAction="#changeFunction" text="Change function" />
-        <Button fx:id="pso_start_button" layoutX="1257.0" layoutY="714.0" mnemonicParsing="false" onAction="#startPSOApplication" prefHeight="0.0" prefWidth="82.0" text="Start">
+        <Button fx:id="pso_start_button" layoutX="1261.0" layoutY="716.0" mnemonicParsing="false" onAction="#startPSOApplication" prefHeight="0.0" prefWidth="82.0" text="Start">
             <font>
                 <Font size="24.0" />
             </font>
         </Button>
       <Text layoutX="14.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Global best evaluation:" />
       <Text layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current best evaluation:" />
-      <Text fx:id="pso_current_best_evaluation_text" layoutX="180.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(current best evaluation value)" />
-      <Text fx:id="pso_global_best_evaluation_text" layoutX="180.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(global best evaluation value)" />
+      <Text fx:id="pso_current_best_evaluation_text" layoutX="180.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="pso_global_best_evaluation_text" layoutX="180.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text layoutX="582.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best position y:" />
       <Text layoutX="582.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best position x:" />
       <Text layoutX="642.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*alpha">
@@ -108,8 +108,10 @@
             <Font size="9.0" />
          </font>
       </Text>
-      <Text fx:id="pso_x_value_text" layoutX="691.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(x value)" />
-      <Text fx:id="pso_y_value_text" layoutX="691.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(y value)" />
+      <Text fx:id="pso_x_value_text" layoutX="691.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="pso_y_value_text" layoutX="691.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="pso_fields_error_text" fill="RED" layoutX="1195.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill fields properly and try again!" visible="false" />
+      <Text layoutX="14.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current epoch:" />
+      <Text fx:id="pso_current_epoch_number_text" layoutX="116.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" />
     </children>
 </AnchorPane>
