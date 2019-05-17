@@ -14,7 +14,7 @@
     <children>
         <Text fx:id="starting_authors_text" layoutX="7.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcin Wójcik &amp; Sebastian Kemnitz | group 4 | Applied Computer Science 18/19" />
         <TextArea editable="false" layoutX="14.0" layoutY="326.0" prefHeight="550.0" prefWidth="550.0" text="There will be a 2D diagram filled with moving particles." wrapText="true" />
-        <Text layoutX="1407.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(add program version there)" />
+        <Text layoutX="1518.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v0.5 (alpha)" />
         <Text fx:id="pso_function_name_text" layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(function name)">
             <font>
                 <Font size="36.0" />
@@ -112,6 +112,6 @@
       <Text fx:id="pso_y_value_text" layoutX="691.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="pso_fields_error_text" fill="RED" layoutX="1195.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill fields properly and try again!" visible="false" />
       <Text layoutX="14.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current epoch:" />
-      <Text fx:id="pso_current_epoch_number_text" layoutX="116.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="pso_current_epoch_number_text" layoutX="115.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.0" />
     </children>
 </AnchorPane>

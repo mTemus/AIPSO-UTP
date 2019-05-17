@@ -22,6 +22,6 @@
          </font>
       </Text>
       <Text fx:id="starting_authors_text" layoutX="7.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcin Wójcik &amp; Sebastian Kemnitz | group 4 | Applied Computer Science 18/19" />
-      <Text layoutX="1407.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(add program version there)" />
+      <Text layoutX="1516.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v0.5 (alpha)" />
    </children>
 </AnchorPane>

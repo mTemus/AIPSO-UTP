@@ -57,13 +57,10 @@ public class SwarmAlgorithm {
     /**
      * Execute the algorithm.
      */
-    public void run() throws InterruptedException {
+    public void run() {
         Particle[] particles = initialize();
-        String s = "";
-
+        String s;
         double oldEval = bestEval;
-        System.out.println("--------------------------EXECUTING-------------------------");
-//        System.out.println("Global Best Evaluation (Epoch " + 0 + "):\t" + bestEval);
 
         for (int i = 0; i < epochs; i++) {
             oldEvals.add(oldEval);
@@ -71,16 +68,13 @@ public class SwarmAlgorithm {
             bestEvals.add(bestEval);
 
             if (bestEval < oldEval) {
-//                System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
                 algorithmTextLogs.add(s);
                 oldEval = bestEval;
             } else {
-//                System.out.println("Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval);
                 s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
                 algorithmTextLogs.add(s);
             }
-
 
             for (Particle p : particles) {
                 p.updatePersonalBest();
@@ -93,12 +87,12 @@ public class SwarmAlgorithm {
             }
         }
 
-        System.out.println("---------------------------RESULT---------------------------");
-        System.out.println("x = " + bestPosition.getX());
-        System.out.println("y = " + bestPosition.getY());
-
-        System.out.println("Final Best Evaluation: " + bestEval);
-        System.out.println("---------------------------COMPLETE-------------------------");
+//        System.out.println("---------------------------RESULT---------------------------");
+//        System.out.println("x = " + bestPosition.getX());
+//        System.out.println("y = " + bestPosition.getY());
+//
+//        System.out.println("Final Best Evaluation: " + bestEval);
+//        System.out.println("---------------------------COMPLETE-------------------------");
 
     }
 
@@ -191,86 +185,6 @@ public class SwarmAlgorithm {
 
     public static double getDefaultSocial() {
         return DEFAULT_SOCIAL;
-    }
-
-    public int getNumOfParticles() {
-        return numOfParticles;
-    }
-
-    public void setNumOfParticles(int numOfParticles) {
-        this.numOfParticles = numOfParticles;
-    }
-
-    public int getEpochs() {
-        return epochs;
-    }
-
-    public void setEpochs(int epochs) {
-        this.epochs = epochs;
-    }
-
-    public double getInertia() {
-        return inertia;
-    }
-
-    public void setInertia(double inertia) {
-        this.inertia = inertia;
-    }
-
-    public double getCognitiveComponent() {
-        return cognitiveComponent;
-    }
-
-    public void setCognitiveComponent(double cognitiveComponent) {
-        this.cognitiveComponent = cognitiveComponent;
-    }
-
-    public double getSocialComponent() {
-        return socialComponent;
-    }
-
-    public void setSocialComponent(double socialComponent) {
-        this.socialComponent = socialComponent;
-    }
-
-    public Vector getBestPosition() {
-        return bestPosition;
-    }
-
-    public void setBestPosition(Vector bestPosition) {
-        this.bestPosition = bestPosition;
-    }
-
-    public double getBestEval() {
-        return bestEval;
-    }
-
-    public void setBestEval(double bestEval) {
-        this.bestEval = bestEval;
-    }
-
-    public Particle.FunctionType getFunction() {
-        return function;
-    }
-
-    public void setFunction(Particle.FunctionType function) {
-        this.function = function;
-    }
-
-    public int getBeginRange() {
-        return beginRange;
-    }
-
-    public void setBeginRange(int beginRange) {
-        this.beginRange = beginRange;
-    }
-
-    public int getEndRange() {
-        return endRange;
-    }
-
-    public void setEndRange(int endRange) {
-        this.endRange = endRange;
     }
 
     public static int getDefaultBeginRange() {

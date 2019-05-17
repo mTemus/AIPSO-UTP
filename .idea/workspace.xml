@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.3.9">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.3.9.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PSOScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PSOScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/startingScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/startingScene.fxml" afterDir="false" />
     </list>
     <list id="069507e3-c7ad-429f-8ee9-a86e1b5f42fa" name="Defaultddd" comment="" />
     <ignored path="JavaFxApplication.iws" />
@@ -68,10 +71,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="266" column="21" selection-start-line="266" selection-start-column="21" selection-end-line="266" selection-end-column="21" />
+            <state relative-caret-position="157">
+              <caret line="71" column="36" lean-forward="true" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#10026#10027#0" expanded="true" />
+                <element signature="e#10066#10067#0" expanded="true" />
+                <element signature="e#10132#10133#0" expanded="true" />
+                <element signature="e#10193#10194#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="-146">
+              <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,6 +111,7 @@
       <find>interia</find>
       <find>system</find>
       <find>start</find>
+      <find>saves</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -232,6 +240,14 @@
               <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swarmCore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AI-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AI-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -253,6 +269,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -394,7 +411,7 @@
       <workItem from="1558027949818" duration="3081000" />
       <workItem from="1558070920526" duration="3557000" />
       <workItem from="1558077708720" duration="3131000" />
-      <workItem from="1558084939106" duration="923000" />
+      <workItem from="1558084939106" duration="2716000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.1">
       <created>1557848271755</created>
@@ -620,14 +637,22 @@
       <option name="project" value="LOCAL" />
       <updated>1558082240960</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="v0.3.9.1">
+      <created>1558085958565</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1558085958565</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46402000" />
+    <option name="totallyTimeSpent" value="48195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.24765101" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -711,7 +736,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="v0.2.2" />
     <MESSAGE value="v0.2.3" />
     <MESSAGE value="v0.3" />
     <MESSAGE value="v0.3.1" />
@@ -736,7 +760,8 @@
     <MESSAGE value="v0.3.8.10" />
     <MESSAGE value="v0.3.8.11" />
     <MESSAGE value="v0.3.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.3.9" />
+    <MESSAGE value="v0.3.9.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.3.9.1" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -842,22 +867,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="266" column="21" selection-start-line="266" selection-start-column="21" selection-end-line="266" selection-end-column="21" />
+        <state relative-caret-position="-146">
+          <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="157">
+          <caret line="71" column="36" lean-forward="true" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#10026#10027#0" expanded="true" />
+            <element signature="e#10066#10067#0" expanded="true" />
+            <element signature="e#10132#10133#0" expanded="true" />
+            <element signature="e#10193#10194#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -69,41 +69,53 @@ public class PSOSceneController {
     private List<Double> oldEvaluations = new ArrayList<>();
     private List<String> algorithmTextLogs = new ArrayList<>();
 
+    private boolean running = false;
+
     private SwarmAlgorithm swarm;
 
-    public void saveSettings(ActionEvent event) throws InterruptedException {
-        checkRadioboxes();
-        setParticlesAmount();
-        setEpochsAmount();
+    public void saveSettings(ActionEvent event) {
+        if (!running) {
+            checkRadioboxes();
+            setParticlesAmount();
+            setEpochsAmount();
 
-        if (!fieldsFilledProperly())
-            pso_fields_error_text.setVisible(true);
-        else {
-            pso_fields_error_text.setVisible(false);
-            dataCollectedProperly = true;
+            if (!fieldsFilledProperly())
+                pso_fields_error_text.setVisible(true);
+            else {
+                pso_fields_error_text.setVisible(false);
+                dataCollectedProperly = true;
+            }
         }
+
     }
 
     public void changeFunction(ActionEvent event) {
     }
 
-    public void startPSOApplication(ActionEvent event) throws InterruptedException {
-        if (dataCollectedProperly) {
-            swarm = new SwarmAlgorithm(function,
-                    particlesAmount, epochsAmount,
-                    inertiaValue, cognitiveComponentValue,
-                    socialComponentValue,
-                    beginRange, endRange);
-            swarm.run();
+    public void startPSOApplication(ActionEvent event) {
+        System.out.println(running);
 
-            Thread swarmThread = new Thread(() -> {
-                try {
-                    startApplication();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
-            swarmThread.start();
+        if (!running) {
+            running = true;
+            if (dataCollectedProperly) {
+                swarm = new SwarmAlgorithm(function,
+                        particlesAmount, epochsAmount,
+                        inertiaValue, cognitiveComponentValue,
+                        socialComponentValue,
+                        beginRange, endRange);
+                swarm.run();
+
+                Thread swarmThread = new Thread(() -> {
+                    try {
+                        startApplication();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                });
+                swarmThread.start();
+
+            }
+
         }
     }
 
@@ -201,32 +213,32 @@ public class PSOSceneController {
         algorithmTextLogs = swarm.getAlgorithmTextLogs();
     }
 
-    private void lookArrays() {
-
-        System.out.println("Best positions size: " + bestPositions.size());
-        System.out.println("Best evals size: " + bestEvaluations.size());
-        System.out.println("Old evals size: " + oldEvaluations.size());
-        System.out.println("Text log size: " + algorithmTextLogs.size());
-        System.out.println("---------------------------------------------------");
-
-        for (Vector v : bestPositions) {
-            System.out.println("Best position: " + v.toString());
-        }
-        System.out.println("---------------------------------------------------");
-
-        for (Double d : bestEvaluations) {
-            System.out.println("Best eval: " + d);
-        }
-        System.out.println("---------------------------------------------------");
-        for (Double d : oldEvaluations) {
-            System.out.println("Old eval: " + d);
-        }
-        System.out.println("---------------------------------------------------");
-
-        for (String s : algorithmTextLogs) {
-            System.out.println(s);
-        }
-    }
+//    private void lookArrays() {
+//
+//        System.out.println("Best positions size: " + bestPositions.size());
+//        System.out.println("Best evals size: " + bestEvaluations.size());
+//        System.out.println("Old evals size: " + oldEvaluations.size());
+//        System.out.println("Text log size: " + algorithmTextLogs.size());
+//        System.out.println("---------------------------------------------------");
+//
+//        for (Vector v : bestPositions) {
+//            System.out.println("Best position: " + v.toString());
+//        }
+//        System.out.println("---------------------------------------------------");
+//
+//        for (Double d : bestEvaluations) {
+//            System.out.println("Best eval: " + d);
+//        }
+//        System.out.println("---------------------------------------------------");
+//        for (Double d : oldEvaluations) {
+//            System.out.println("Old eval: " + d);
+//        }
+//        System.out.println("---------------------------------------------------");
+//
+//        for (String s : algorithmTextLogs) {
+//            System.out.println(s);
+//        }
+//    }
 
     private void startApplication() throws InterruptedException {
         getArrays();
@@ -250,12 +262,14 @@ public class PSOSceneController {
             if (bestEvaluations.get(i) == 0) {
                 pso_global_best_evaluation_text.setText(bestEvaluations.get(i).toString());
                 setAlgorithmProgress(1d);
+                running = false;
                 break;
             } else if (i == epochsAmount)
                 pso_global_best_evaluation_text.setText(bestEvaluations.get(i).toString());
         }
 
         pso_current_best_evaluation_text.setText("");
+        running = false;
     }
 
     private double increaseProgress(int i) {
