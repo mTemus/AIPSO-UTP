@@ -93,8 +93,6 @@ public class PSOSceneController {
     }
 
     public void startPSOApplication(ActionEvent event) {
-        System.out.println(running);
-
         if (!running) {
             running = true;
             if (dataCollectedProperly) {
