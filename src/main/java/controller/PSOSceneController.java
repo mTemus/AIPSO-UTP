@@ -179,7 +179,7 @@ public class PSOSceneController {
         }
 
         if (delay_25_radio.isSelected())
-            applicationDelay = 25;
+            applicationDelay = 50;
         else if (delay_200_radio.isSelected())
             applicationDelay = 200;
         else if (delay_500_radio.isSelected())

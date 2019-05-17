@@ -68,11 +68,11 @@ public class SwarmAlgorithm {
             bestEvals.add(bestEval);
 
             if (bestEval < oldEval) {
-                s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
+                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval;
                 algorithmTextLogs.add(s);
                 oldEval = bestEval;
             } else {
-                s = "Global Best Evaluation (Epoch " + (i) + "):" + bestEval;
+                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval;
                 algorithmTextLogs.add(s);
             }
 
