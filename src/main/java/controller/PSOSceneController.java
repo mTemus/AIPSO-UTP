@@ -91,6 +91,7 @@ public class PSOSceneController {
             setEpochsAmount();
             setFilterPrecision();
             setSwarmSettings();
+            setFieldSize();
 
             setPropertyText();
 
@@ -209,21 +210,12 @@ public class PSOSceneController {
         }
     }
 
-    private void checkRadioboxes() {
-        if (field_range_50_radio.isSelected()) {
-            beginRange = 0;
-            endRange = 51;
-        } else if (field_range_100_radio.isSelected()) {
-            beginRange = -50;
-            endRange = 51;
-        } else if (field_range_150_radio.isSelected()) {
-            beginRange = -50;
-            endRange = 101;
-        } else if (field_range_200_radio.isSelected()) {
-            beginRange = SwarmAlgorithm.getDefaultBeginRange();
-            endRange = SwarmAlgorithm.getDefaultEndRange();
-        }
+    private void setFieldSize() {
+        beginRange = -275;
+        endRange = 276;
+    }
 
+    private void checkRadioboxes() {
         if (delay_50_radio.isSelected())
             applicationDelay = 50;
         else if (delay_200_radio.isSelected())
@@ -269,6 +261,8 @@ public class PSOSceneController {
         oldSolutions = swarm.getOldSolutions();
         algorithmTextLogs = swarm.getAlgorithmTextLogs();
         swarmParticles = swarm.getSwarmParticles();
+
+        createParticlesToDraw();
     }
 
     private void startApplication() throws InterruptedException {
@@ -307,7 +301,6 @@ public class PSOSceneController {
 
         return double_i / double_size;
     }
-
 
     private void createParticlesToDraw() {
         for (int i = 0; i < bestSolutions.size(); i++) {

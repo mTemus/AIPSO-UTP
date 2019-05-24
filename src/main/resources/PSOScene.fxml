@@ -18,61 +18,52 @@
                 <Font size="36.0" />
             </font>
         </Text>
-        <Text layoutX="1161.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Function Settings">
+        <Text layoutX="1215.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Function Settings">
             <font>
                 <Font size="36.0" />
             </font>
         </Text>
         <ProgressBar fx:id="pso_swarm_progressbar" layoutX="14.0" layoutY="290.0" prefHeight="23.0" prefWidth="550.0" progress="0.0" />
-        <Button fx:id="pso_save_settings_button" layoutX="1067.0" layoutY="735.0" mnemonicParsing="false" onAction="#saveSettings" text="Save settings" />
-        <Text layoutX="1232.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swarm settings">
+        <Button fx:id="pso_save_settings_button" layoutX="1122.0" layoutY="664.0" mnemonicParsing="false" onAction="#saveSettings" text="Save settings" />
+        <Text layoutX="1286.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swarm settings">
             <font>
                 <Font size="20.0" />
             </font>
         </Text>
-        <Text layoutX="1065.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Field range:" />
-        <TextArea fx:id="pso_swarm_text_log_textarea" editable="false" layoutX="583.0" layoutY="326.0" prefHeight="550.0" prefWidth="459.0" />
+        <TextArea fx:id="pso_swarm_text_log_textarea" editable="false" layoutX="583.0" layoutY="326.0" prefHeight="550.0" prefWidth="525.0" />
         <Text layoutX="582.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text output:" />
-        <RadioButton fx:id="field_range_50_radio" layoutX="1075.0" layoutY="152.0" mnemonicParsing="false" text="50x50">
-            <toggleGroup>
-                <ToggleGroup fx:id="field_range" />
-            </toggleGroup>
-        </RadioButton>
-        <RadioButton fx:id="field_range_100_radio" layoutX="1163.0" layoutY="152.0" mnemonicParsing="false" selected="true" text="100x100" toggleGroup="$field_range" />
-        <RadioButton fx:id="field_range_150_radio" layoutX="1257.0" layoutY="152.0" mnemonicParsing="false" text="150x150" toggleGroup="$field_range" />
-        <RadioButton fx:id="field_range_200_radio" layoutX="1353.0" layoutY="152.0" mnemonicParsing="false" selected="true" text="200x200" toggleGroup="$field_range" />
-        <Text layoutX="1065.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Inertia:" />
-        <Text layoutX="1065.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Cognitive component:" />
-        <Text layoutX="1065.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Social component:" />
-        <TextField fx:id="pso_inertia_textfield" layoutX="1237.0" layoutY="190.0" prefHeight="30.0" prefWidth="275.0" promptText="Type inertia value..." text="0.729844" />
-        <TextField fx:id="pso_cognitive_textfield" layoutX="1237.0" layoutY="240.0" prefHeight="31.0" prefWidth="275.0" promptText="Type cognitive component value..." text="1.496180" />
-        <TextField fx:id="pso_social_textfield" layoutX="1237.0" layoutY="290.0" prefHeight="31.0" prefWidth="275.0" promptText="Type social component value..." text="1.496180" />
-        <Text layoutX="1224.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Particles settings">
+        <Text layoutX="1120.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Inertia:" />
+        <Text layoutX="1120.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Cognitive component:" />
+        <Text layoutX="1120.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Social component:" />
+        <TextField fx:id="pso_inertia_textfield" layoutX="1292.0" layoutY="119.0" prefHeight="30.0" prefWidth="275.0" promptText="Type inertia value..." text="0.729844" />
+        <TextField fx:id="pso_cognitive_textfield" layoutX="1292.0" layoutY="169.0" prefHeight="31.0" prefWidth="275.0" promptText="Type cognitive component value..." text="1.496180" />
+        <TextField fx:id="pso_social_textfield" layoutX="1292.0" layoutY="219.0" prefHeight="31.0" prefWidth="275.0" promptText="Type social component value..." text="1.496180" />
+        <Text layoutX="1279.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Particles settings">
             <font>
                 <Font size="20.0" />
             </font>
         </Text>
-        <TextField fx:id="pso_particles_amount_textfield" layoutX="1237.0" layoutY="440.0" prefHeight="31.0" prefWidth="275.0" promptText="Particles amount" text="100" />
-        <Text layoutX="1065.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Particles amount:" />
-        <TextField fx:id="pso_number_of_epochs_textfield" layoutX="1237.0" layoutY="490.0" prefHeight="31.0" prefWidth="275.0" promptText="Number of epochs" />
-        <Text layoutX="1065.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Number of Epochs:" />
-        <Text layoutX="1212.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Application settings:">
+        <TextField fx:id="pso_particles_amount_textfield" layoutX="1292.0" layoutY="369.0" prefHeight="31.0" prefWidth="275.0" promptText="Particles amount" text="100" />
+        <Text layoutX="1120.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Particles amount:" />
+        <TextField fx:id="pso_number_of_epochs_textfield" layoutX="1292.0" layoutY="419.0" prefHeight="31.0" prefWidth="275.0" promptText="Number of epochs" />
+        <Text layoutX="1120.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Number of Epochs:" />
+        <Text layoutX="1267.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Application settings:">
             <font>
                 <Font size="20.0" />
             </font>
         </Text>
-        <Text layoutX="1065.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Application delay:" />
-        <RadioButton fx:id="delay_1000_radio" layoutX="1344.0" layoutY="601.0" mnemonicParsing="false" text="1000 ms">
+        <Text layoutX="1120.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Application delay:" />
+        <RadioButton fx:id="delay_1000_radio" layoutX="1399.0" layoutY="530.0" mnemonicParsing="false" text="1000 ms">
             <toggleGroup>
                 <ToggleGroup fx:id="delay" />
             </toggleGroup>
         </RadioButton>
-        <RadioButton fx:id="delay_500_radio" layoutX="1248.0" layoutY="601.0" mnemonicParsing="false" text="500 ms" toggleGroup="$delay" />
-        <RadioButton fx:id="delay_200_radio" layoutX="1154.0" layoutY="601.0" mnemonicParsing="false" text="200 ms" toggleGroup="$delay" />
-        <RadioButton fx:id="delay_50_radio" layoutX="1066.0" layoutY="601.0" mnemonicParsing="false" selected="true" text="50 ms" toggleGroup="$delay" />
-        <RadioButton fx:id="delay_1500_radio" layoutX="1448.0" layoutY="601.0" mnemonicParsing="false" text="1500 ms" toggleGroup="$delay" />
+        <RadioButton fx:id="delay_500_radio" layoutX="1303.0" layoutY="530.0" mnemonicParsing="false" text="500 ms" toggleGroup="$delay" />
+        <RadioButton fx:id="delay_200_radio" layoutX="1209.0" layoutY="530.0" mnemonicParsing="false" text="200 ms" toggleGroup="$delay" />
+        <RadioButton fx:id="delay_50_radio" layoutX="1121.0" layoutY="530.0" mnemonicParsing="false" selected="true" text="50 ms" toggleGroup="$delay" />
+        <RadioButton fx:id="delay_1500_radio" layoutX="1503.0" layoutY="530.0" mnemonicParsing="false" text="1500 ms" toggleGroup="$delay" />
         <Button fx:id="pso_change_function_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onAction="#changeFunction" text="Change function" />
-        <Button fx:id="pso_start_button" layoutX="1196.0" layoutY="735.0" mnemonicParsing="false" onAction="#startPSOApplication" text="Start" />
+        <Button fx:id="pso_start_button" layoutX="1251.0" layoutY="664.0" mnemonicParsing="false" onAction="#startPSOApplication" text="Start" />
       <Text layoutX="14.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Global best solution:" />
       <Text layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current best solution:" />
       <Text fx:id="pso_current_best_solution_text" layoutX="180.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -103,14 +94,13 @@
       <Button layoutX="584.0" layoutY="190.0" mnemonicParsing="false" onAction="#resetPropertiesToDefault" text="Reset to default" />
       <Text fx:id="optimum_property_text" layoutX="740.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0 (default)" />
       <Text fx:id="precision_property_text" layoutX="740.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 (default)" />
-      <Text layoutX="1065.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Optimum:" />
-      <TextField fx:id="pso_optimum_textfield" layoutX="1237.0" layoutY="340.0" prefHeight="31.0" prefWidth="275.0" promptText="Type social component value..." text="0.0" />
-      <Text layoutX="1065.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Filter precision:" />
-      <Button layoutX="1237.0" layoutY="641.0" mnemonicParsing="false" onAction="#increasePrecision" text="+" />
-      <Button layoutX="1331.0" layoutY="641.0" mnemonicParsing="false" onAction="#decreasePrecision" prefWidth="31.0" text="-" />
-      <TextField fx:id="pso_precision_textfield" alignment="CENTER" editable="false" layoutX="1277.0" layoutY="641.0" prefHeight="30.0" prefWidth="45.0" text="0" />
+      <Text layoutX="1120.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Optimum:" />
+      <TextField fx:id="pso_optimum_textfield" layoutX="1292.0" layoutY="269.0" prefHeight="31.0" prefWidth="275.0" promptText="Type social component value..." text="0.0" />
+      <Text layoutX="1120.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Filter precision:" />
+      <Button layoutX="1290.0" layoutY="569.0" mnemonicParsing="false" onAction="#increasePrecision" text="+" />
+      <Button layoutX="1386.0" layoutY="570.0" mnemonicParsing="false" onAction="#decreasePrecision" prefWidth="31.0" text="-" />
+      <TextField fx:id="pso_precision_textfield" alignment="CENTER" editable="false" layoutX="1332.0" layoutY="570.0" prefHeight="30.0" prefWidth="45.0" text="0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="550.0" layoutX="15.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="550.0" />
       <Circle fx:id="particle_test1" fill="DODGERBLUE" layoutX="221.0" layoutY="440.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="373.0" layoutY="147.0" mnemonicParsing="false" onAction="#testParticle" text="Button" />
     </children>
 </AnchorPane>
