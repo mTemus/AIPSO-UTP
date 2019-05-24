@@ -50,11 +50,7 @@ public class SwarmAlgorithm {
         String s;
         double oldSolution = bestSolution;
         DecimalFormat finalSolution = setDecimalFormat();
-
-        if (filterPrecision > 0) {
-            PSOSceneController PSOSC = new PSOSceneController();
-            PSOSC.setViewPattern(finalSolution);
-        }
+        exportViewPattern(finalSolution);
 
         for (int i = 0; i < epochs; i++) {
             oldSolutions.add(oldSolution);
@@ -88,9 +84,7 @@ public class SwarmAlgorithm {
                     System.out.println("BSf = Of | BSf: " + bestSolution + " Of: " + optimum);
                     break;
                 }
-
             }
-
 
             for (Particle p : particles) {
                 p.updatePersonalBest();
@@ -101,8 +95,6 @@ public class SwarmAlgorithm {
                 updateVelocity(p);
                 p.updatePosition();
             }
-
-
         }
     }
 
@@ -114,6 +106,22 @@ public class SwarmAlgorithm {
             updateGlobalBest(particle);
         }
         return particles;
+    }
+
+    private void exportViewPattern(DecimalFormat viewPattern) {
+        PSOSceneController PSOSC = new PSOSceneController();
+        if (filterPrecision > 0) {
+            PSOSC.setViewPattern(viewPattern);
+        } else {
+            String stringDouble = Double.toString(Double.MAX_VALUE);
+            String pattern = "#0.";
+
+            for (int i = 0; i < stringDouble.length(); i++) {
+                pattern += "0";
+            }
+            DecimalFormat df = new DecimalFormat(pattern);
+            PSOSC.setViewPattern(df);
+        }
     }
 
     private DecimalFormat setDecimalFormat() {
