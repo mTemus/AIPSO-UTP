@@ -155,7 +155,7 @@ public class PSOSceneController {
         cognitive_property_text.setText("1.496180 (default)");
         social_property_text.setText("1.496180 (default)");
         optimum_property_text.setText("0.0 (default)");
-        precision_property_text.setText("0 (default)";
+        precision_property_text.setText("0 (default)");
     }
 
     private void resetPropertyTextfield() {
