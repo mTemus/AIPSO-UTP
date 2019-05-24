@@ -55,11 +55,13 @@ public class PSOSceneController {
     private double inertiaValue;
     private double cognitiveComponentValue;
     private double socialComponentValue;
+    private double swarmOptimum = 0.0;
     private int beginRange;
     private int endRange;
     private int particlesAmount;
     private int epochsAmount;
     private int applicationDelay;
+    private int filterPrecision = 0;
     private boolean dataCollectedProperly = false;
     private DoubleProperty algorithmProgress = new SimpleDoubleProperty(0);
 
@@ -77,6 +79,8 @@ public class PSOSceneController {
             checkRadioboxes();
             setParticlesAmount();
             setEpochsAmount();
+            setFilterPrecision();
+            setSwarmSettings();
 
             if (!fieldsFilledProperly())
                 pso_fields_error_text.setVisible(true);
@@ -115,18 +119,51 @@ public class PSOSceneController {
     }
 
     public void resetPropertiesToDefault(ActionEvent event) {
+     resetPropertyValues();
+     resetPropertyText();
+     resetPropertyTextfield();
     }
 
     public void increasePrecision(ActionEvent event) {
+        if (filterPrecision < 10)
+            filterPrecision++;
+        pso_precision_textfield.setText(Integer.toString(filterPrecision));
     }
 
     public void decreasePrecision(ActionEvent event) {
+        if (filterPrecision > 0)
+            filterPrecision--;
+        pso_precision_textfield.setText(Integer.toString(filterPrecision));
     }
 
 
     public void initialize() {
         setFunctionName();
         pso_swarm_progressbar.progressProperty().bind(getAlgorithmProgress());
+    }
+
+    private void resetPropertyValues() {
+        inertiaValue = SwarmAlgorithm.getDefaultInertia();
+        cognitiveComponentValue = SwarmAlgorithm.getDefaultCognitive();
+        socialComponentValue = SwarmAlgorithm.getDefaultSocial();
+        swarmOptimum = 0.0;
+        filterPrecision = 0;
+    }
+
+    private void resetPropertyText() {
+        interia_property_text.setText("0.729844 (default)");
+        cognitive_property_text.setText("1.496180 (default)");
+        social_property_text.setText("1.496180 (default)");
+        optimum_property_text.setText("0.0 (default)");
+        precision_property_text.setText("0 (default)";
+    }
+
+    private void resetPropertyTextfield() {
+        pso_inertia_textfield.setText(Double.toString(inertiaValue));
+        pso_cognitive_textfield.setText(Double.toString(cognitiveComponentValue));
+        pso_social_textfield.setText(Double.toString(socialComponentValue));
+        pso_optimum_textfield.setText(Double.toString(swarmOptimum));
+        pso_precision_textfield.setText(Integer.toString(filterPrecision));
     }
 
     private void setFunctionName() {
@@ -154,21 +191,6 @@ public class PSOSceneController {
     }
 
     private void checkRadioboxes() {
-        if (inertia_own_radio.isSelected())
-            inertiaValue = Double.parseDouble(pso_own_inertia_textfield.getText());
-        else
-            inertiaValue = SwarmAlgorithm.getDefaultInertia();
-
-        if (cognitive_own_radio.isSelected())
-            cognitiveComponentValue = Double.parseDouble(pso_own_cognitive_textfield.getText());
-        else
-            cognitiveComponentValue = SwarmAlgorithm.getDefaultCognitive();
-
-        if (social_own_radio.isSelected())
-            socialComponentValue = Double.parseDouble(pso_own_social_textfield.getText());
-        else
-            socialComponentValue = SwarmAlgorithm.getDefaultSocial();
-
         if (field_range_50_radio.isSelected()) {
             beginRange = 0;
             endRange = 51;
@@ -197,6 +219,17 @@ public class PSOSceneController {
 
     private boolean fieldsFilledProperly() {
         return inertiaValue != 0 && cognitiveComponentValue != 0 && socialComponentValue != 0 && particlesAmount != 0 && epochsAmount != 0;
+    }
+
+    private void setSwarmSettings() {
+        inertiaValue = Double.parseDouble(pso_inertia_textfield.getText());
+        cognitiveComponentValue = Double.parseDouble(pso_cognitive_textfield.getText());
+        socialComponentValue = Double.parseDouble(pso_social_textfield.getText());
+        swarmOptimum = Double.parseDouble(pso_optimum_textfield.getText());
+    }
+
+    private void setFilterPrecision() {
+        filterPrecision = Integer.parseInt(pso_precision_textfield.getText());
     }
 
     private void setParticlesAmount() {
