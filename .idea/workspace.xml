@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.5.3">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="v0.5.5.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/swarmCore/Particle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/swarmCore/Particle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/swarmCore/SwarmAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PSOScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PSOScene.fxml" afterDir="false" />
     </list>
     <list id="069507e3-c7ad-429f-8ee9-a86e1b5f42fa" name="Defaultddd" comment="" />
     <ignored path="JavaFxApplication.iws" />
@@ -71,10 +68,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
+            <state relative-caret-position="192">
+              <caret line="165" column="59" lean-forward="true" selection-start-line="165" selection-start-column="59" selection-end-line="165" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#8709#8710#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,6 +125,7 @@
       <find>start</find>
       <find>saves</find>
       <find>system</find>
+      <find>save</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -455,7 +454,7 @@
       <workItem from="1558165671463" duration="269000" />
       <workItem from="1558365588298" duration="3917000" />
       <workItem from="1558444871066" duration="834000" />
-      <workItem from="1558678272014" duration="2699000" />
+      <workItem from="1558678272014" duration="6017000" />
     </task>
     <task id="LOCAL-00001" summary="v0.0.1">
       <created>1557848271755</created>
@@ -716,17 +715,75 @@
       <option name="project" value="LOCAL" />
       <updated>1558681166611</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="v0.5.4">
+      <created>1558683912756</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1558683912756</updated>
+    </task>
+    <task id="LOCAL-00039" summary="v0.5.5">
+      <created>1558688499093</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1558688499093</updated>
+    </task>
+    <task id="LOCAL-00040" summary="v0.5.5.1">
+      <created>1558688513013</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1558688513013</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56842000" />
+    <option name="totallyTimeSpent" value="60160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.26107383" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.26107383" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Problems" order="9" />
+      <window_info anchor="bottom" id="Changes" order="10" />
+      <window_info anchor="bottom" id="Profiler" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="15" />
+      <window_info anchor="bottom" id="Terminal" order="16" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Maven" order="7" weight="0.3295302" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.26107383" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -761,7 +818,7 @@
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -808,9 +865,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="v0.3.3" />
-    <MESSAGE value="v0.3.4" />
-    <MESSAGE value="v0.3.5" />
     <MESSAGE value="v0.3.6" />
     <MESSAGE value="v0.3.7" />
     <MESSAGE value="v0.3.7.1" />
@@ -833,7 +887,10 @@
     <MESSAGE value="v0.5.1 (alpha)" />
     <MESSAGE value="v0.5.2 (alpha)" />
     <MESSAGE value="v0.5.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.5.3" />
+    <MESSAGE value="v0.5.4" />
+    <MESSAGE value="v0.5.5" />
+    <MESSAGE value="v0.5.5.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.5.5.1" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -952,10 +1009,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/PSOSceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
+        <state relative-caret-position="192">
+          <caret line="165" column="59" lean-forward="true" selection-start-line="165" selection-start-column="59" selection-end-line="165" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#8709#8710#0" expanded="true" />
           </folding>
         </state>
       </provider>

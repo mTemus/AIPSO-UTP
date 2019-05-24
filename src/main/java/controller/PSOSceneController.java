@@ -82,6 +82,8 @@ public class PSOSceneController {
             setFilterPrecision();
             setSwarmSettings();
 
+            setPropertyText();
+
             if (!fieldsFilledProperly())
                 pso_fields_error_text.setVisible(true);
             else {
@@ -119,9 +121,9 @@ public class PSOSceneController {
     }
 
     public void resetPropertiesToDefault(ActionEvent event) {
-     resetPropertyValues();
-     resetPropertyText();
-     resetPropertyTextfield();
+        resetPropertyValues();
+        resetPropertyText();
+        resetPropertyTextfield();
     }
 
     public void increasePrecision(ActionEvent event) {
@@ -150,6 +152,14 @@ public class PSOSceneController {
         filterPrecision = 0;
     }
 
+    private void setPropertyText() {
+        interia_property_text.setText(Double.toString(inertiaValue));
+        cognitive_property_text.setText(Double.toString(cognitiveComponentValue));
+        social_property_text.setText(Double.toString(socialComponentValue));
+        optimum_property_text.setText(Double.toString(swarmOptimum));
+        precision_property_text.setText(Integer.toString(filterPrecision));
+    }
+
     private void resetPropertyText() {
         interia_property_text.setText("0.729844 (default)");
         cognitive_property_text.setText("1.496180 (default)");
@@ -170,7 +180,6 @@ public class PSOSceneController {
         String functionName = StartingSceneController.getFunction();
         pso_function_name_text.setText(functionName + " function");
         setFunction(functionName);
-
     }
 
     private void setFunction(String functionName) {
