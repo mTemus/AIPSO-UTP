@@ -274,15 +274,14 @@ public class PSOSceneController {
             setAlgorithmProgress(increaseProgress(i));
 
             for (Particle p : swarmParticles.get(i)) {
-
                 for (Circle c : particleObjects) {
                     if (p.getBestSolution() == bestSolutions.get(i))
                         c.setFill(Color.RED);
                     else
                         c.setFill(Color.BLUE);
 
-                    double coordinateX = 285.5 + p.getBestPosition().getX();
-                    double coordinateY = 438 + p.getBestPosition().getY();
+                    double coordinateX = 285.5 + (p.getPosition().getX() * 1000000000000d);
+                    double coordinateY = 438 + (p.getPosition().getY() * 1000000000000d);
 
                     testCircle(c, coordinateX, coordinateY);
                 }
