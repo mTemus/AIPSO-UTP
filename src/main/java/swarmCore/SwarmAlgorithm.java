@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class SwarmAlgorithm {
 
-    private int numOfParticles, epochs;
-    private double inertia, cognitiveComponent, socialComponent;
+    private int numOfParticles, epochs, filterPrecision;
+    private double inertia, cognitiveComponent, socialComponent, optimum;
     private Vector bestPosition;
     private double bestSolution;
     private Particle.FunctionType function;
@@ -25,7 +25,7 @@ public class SwarmAlgorithm {
     private static final int DEFAULT_BEGIN_RANGE = -100;
     private static final int DEFAULT_END_RANGE = 101;
 
-    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int beginRange, int endRange) {
+    public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int beginRange, int endRange, double optimum, int filterPrecision) {
         this.numOfParticles = particles;
         this.epochs = epochs;
         this.inertia = inertia;
@@ -37,6 +37,8 @@ public class SwarmAlgorithm {
         bestSolution = Double.POSITIVE_INFINITY;
         this.beginRange = beginRange;
         this.endRange = endRange;
+        this.optimum = optimum;
+        this.filterPrecision = filterPrecision;
     }
 
     public void run() {
@@ -72,7 +74,7 @@ public class SwarmAlgorithm {
     private Particle[] initialize() {
         Particle[] particles = new Particle[numOfParticles];
         for (int i = 0; i < numOfParticles; i++) {
-            Particle particle = new Particle(function, beginRange, endRange);
+            Particle particle = new Particle(function, beginRange, endRange, optimum);
             particles[i] = particle;
             updateGlobalBest(particle);
         }

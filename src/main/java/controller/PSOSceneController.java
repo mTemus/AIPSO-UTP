@@ -105,7 +105,8 @@ public class PSOSceneController {
                         particlesAmount, epochsAmount,
                         inertiaValue, cognitiveComponentValue,
                         socialComponentValue,
-                        beginRange, endRange);
+                        beginRange, endRange,
+                        swarmOptimum, filterPrecision);
                 swarm.run();
 
                 Thread swarmThread = new Thread(() -> {
