@@ -1,5 +1,7 @@
 package swarmCore;
 
+import controller.PSOSceneController;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -47,35 +49,48 @@ public class SwarmAlgorithm {
         Particle[] particles = initialize();
         String s;
         double oldSolution = bestSolution;
-        DecimalFormat viewFormat = new DecimalFormat("#0.0000000000");
         DecimalFormat finalSolution = setDecimalFormat();
 
+        if (filterPrecision > 0) {
+            PSOSceneController PSOSC = new PSOSceneController();
+            PSOSC.setViewPattern(finalSolution);
+        }
+
         for (int i = 0; i < epochs; i++) {
-            oldSolutions.add(Double.valueOf(viewFormat.format(oldSolution)));
+            oldSolutions.add(oldSolution);
             bestPositions.add(bestPosition);
-            bestSolutions.add(Double.valueOf(viewFormat.format(bestSolution)));
+            bestSolutions.add(bestSolution);
+
+            if (bestSolution < oldSolution) {
+                if (filterPrecision == 0)
+                    s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestSolution;
+                else
+                    s = "Global Best Evaluation (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
+
+                algorithmTextLogs.add(s);
+                oldSolution = bestSolution;
+            } else {
+                if (filterPrecision == 0)
+                    s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestSolution;
+                else
+                    s = "Global Best Evaluation (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
+
+                algorithmTextLogs.add(s);
+            }
 
             if (filterPrecision == 0) {
-                if (bestSolution == optimum){
+                if (bestSolution == optimum) {
                     System.out.println("BS = O | BS: " + bestSolution + " O: " + optimum);
                     break;
                 }
             } else {
-                if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum))){
+                if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum))) {
                     System.out.println("BSf = Of | BSf: " + bestSolution + " Of: " + optimum);
                     break;
                 }
 
             }
 
-            if (bestSolution < oldSolution) {
-                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + viewFormat.format(bestSolution);
-                algorithmTextLogs.add(s);
-                oldSolution = bestSolution;
-            } else {
-                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + viewFormat.format(bestSolution);
-                algorithmTextLogs.add(s);
-            }
 
             for (Particle p : particles) {
                 p.updatePersonalBest();

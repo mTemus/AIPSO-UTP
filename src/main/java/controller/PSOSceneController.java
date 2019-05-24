@@ -9,6 +9,7 @@ import swarmCore.Particle;
 import swarmCore.SwarmAlgorithm;
 import swarmCore.Vector;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +64,7 @@ public class PSOSceneController {
     private int applicationDelay;
     private int filterPrecision = 0;
     private boolean dataCollectedProperly = false;
+    private static DecimalFormat viewPattern;
     private DoubleProperty algorithmProgress = new SimpleDoubleProperty(0);
 
     private List<Vector> bestPositions = new ArrayList<>();
@@ -271,21 +273,16 @@ public class PSOSceneController {
             Thread.sleep(applicationDelay);
             setAlgorithmProgress(increaseProgress(i));
 
-            pso_current_best_solution_text.setText(bestSolutions.get(i).toString());
-            pso_global_best_solution_text.setText(oldSolutions.get(i).toString());
+            pso_current_best_solution_text.setText(viewPattern.format(bestSolutions.get(i)));
+            pso_global_best_solution_text.setText(viewPattern.format(oldSolutions.get(i)));
             pso_x_value_text.setText(Double.valueOf(bestPositions.get(i).getX()).toString());
             pso_y_value_text.setText(Double.valueOf(bestPositions.get(i).getY()).toString());
             s += algorithmTextLogs.get(i) + "\n";
             pso_swarm_text_log_textarea.setText(s);
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
 
-            if (bestSolutions.get(i) == 10) {
-                pso_global_best_solution_text.setText(bestSolutions.get(i).toString());
-                setAlgorithmProgress(1d);
-                running = false;
-                break;
-            } else if (i == epochsAmount)
-                pso_global_best_solution_text.setText(bestSolutions.get(i).toString());
+            if (i == bestPositions.size() - 1)
+                pso_global_best_solution_text.setText(viewPattern.format(bestSolutions.get(i)));
         }
 
         pso_current_best_solution_text.setText("");
@@ -296,7 +293,7 @@ public class PSOSceneController {
         double double_i = (double) i;
         double double_size = (double) bestSolutions.size();
 
-        if (i == epochsAmount - 1)
+        if (i == bestSolutions.size() - 1)
             return 1;
 
         return double_i / double_size;
@@ -310,5 +307,7 @@ public class PSOSceneController {
         this.algorithmProgress.set(algorithmProgress);
     }
 
-
+    public void setViewPattern(DecimalFormat viewPattern) {
+        PSOSceneController.viewPattern = viewPattern;
+    }
 }

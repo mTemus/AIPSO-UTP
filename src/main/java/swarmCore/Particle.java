@@ -107,23 +107,4 @@ public class Particle {
         this.velocity = velocity.clone();
     }
 
-    public void setPosition(Vector position) {
-        this.position = position;
-    }
-
-    public void setBestPosition(Vector bestPosition) {
-        this.bestPosition = bestPosition;
-    }
-
-    public void setBestSolution(double bestSolution) {
-        this.bestSolution = bestSolution;
-    }
-
-    public FunctionType getFunction() {
-        return function;
-    }
-
-    public void setFunction(FunctionType function) {
-        this.function = function;
-    }
 }
