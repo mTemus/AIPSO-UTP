@@ -1,5 +1,7 @@
 package swarmCore;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,6 +47,7 @@ public class SwarmAlgorithm {
         Particle[] particles = initialize();
         String s;
         double oldSolution = bestSolution;
+        DecimalFormat finalSolution = setDecimalFormat();
 
         for (int i = 0; i < epochs; i++) {
             oldSolutions.add(oldSolution);
@@ -69,8 +72,12 @@ public class SwarmAlgorithm {
                 updateVelocity(p);
                 p.updatePosition();
             }
+
+            if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum)))
+                break;
         }
     }
+
     private Particle[] initialize() {
         Particle[] particles = new Particle[numOfParticles];
         for (int i = 0; i < numOfParticles; i++) {
@@ -81,6 +88,18 @@ public class SwarmAlgorithm {
         return particles;
     }
 
+    private DecimalFormat setDecimalFormat() {
+        String pattern;
+        if (filterPrecision == 0)
+            pattern = "#0";
+        else
+            pattern = "#0.";
+
+        for (int i = 0; i < filterPrecision; i++) {
+            pattern += "0";
+        }
+        return new DecimalFormat(pattern);
+    }
 
     private void updateGlobalBest(Particle particle) {
         if (particle.getBestSolution() < bestSolution) {

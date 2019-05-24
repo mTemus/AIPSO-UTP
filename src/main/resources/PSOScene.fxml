@@ -71,7 +71,7 @@
         </RadioButton>
         <RadioButton fx:id="delay_500_radio" layoutX="1248.0" layoutY="601.0" mnemonicParsing="false" text="500 ms" toggleGroup="$delay" />
         <RadioButton fx:id="delay_200_radio" layoutX="1154.0" layoutY="601.0" mnemonicParsing="false" text="200 ms" toggleGroup="$delay" />
-        <RadioButton fx:id="delay_25_radio" layoutX="1066.0" layoutY="601.0" mnemonicParsing="false" selected="true" text="50 ms" toggleGroup="$delay" />
+        <RadioButton fx:id="delay_50_radio" layoutX="1066.0" layoutY="601.0" mnemonicParsing="false" selected="true" text="50 ms" toggleGroup="$delay" />
         <RadioButton fx:id="delay_1500_radio" layoutX="1448.0" layoutY="601.0" mnemonicParsing="false" text="1500 ms" toggleGroup="$delay" />
         <Button fx:id="pso_change_function_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onAction="#changeFunction" text="Change function" />
         <Button fx:id="pso_start_button" layoutX="1196.0" layoutY="735.0" mnemonicParsing="false" onAction="#startPSOApplication" text="Start" />

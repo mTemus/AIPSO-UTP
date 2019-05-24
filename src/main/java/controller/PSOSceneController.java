@@ -28,7 +28,7 @@ public class PSOSceneController {
     public ToggleGroup delay;
     public RadioButton delay_500_radio;
     public RadioButton delay_200_radio;
-    public RadioButton delay_25_radio;
+    public RadioButton delay_50_radio;
     public RadioButton delay_1500_radio;
     public RadioButton field_range_50_radio;
     public RadioButton field_range_100_radio;
@@ -215,7 +215,7 @@ public class PSOSceneController {
             endRange = SwarmAlgorithm.getDefaultEndRange();
         }
 
-        if (delay_25_radio.isSelected())
+        if (delay_50_radio.isSelected())
             applicationDelay = 50;
         else if (delay_200_radio.isSelected())
             applicationDelay = 200;
