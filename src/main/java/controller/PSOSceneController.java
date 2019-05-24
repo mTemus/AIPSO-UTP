@@ -37,12 +37,19 @@ public class PSOSceneController {
     public RadioButton delay_1000_radio;
     public Button pso_change_function_button;
     public Button pso_start_button;
-    public Text pso_current_best_evaluation_text;
-    public Text pso_global_best_evaluation_text;
+    public Text pso_current_best_solution_text;
+    public Text pso_global_best_solution_text;
     public Text pso_x_value_text;
     public Text pso_y_value_text;
     public Text pso_fields_error_text;
     public Text pso_current_epoch_number_text;
+    public Text interia_property_text;
+    public Text cognitive_property_text;
+    public Text social_property_text;
+    public Text optimum_property_text;
+    public Text precision_property_text;
+    public TextField pso_optimum_textfield;
+    public TextField pso_precision_textfield;
 
     private Particle.FunctionType function;
     private double inertiaValue;
@@ -103,11 +110,19 @@ public class PSOSceneController {
                     }
                 });
                 swarmThread.start();
-
             }
-
         }
     }
+
+    public void resetPropertiesToDefault(ActionEvent event) {
+    }
+
+    public void increasePrecision(ActionEvent event) {
+    }
+
+    public void decreasePrecision(ActionEvent event) {
+    }
+
 
     public void initialize() {
         setFunctionName();
@@ -198,8 +213,8 @@ public class PSOSceneController {
 
     private void getArrays() {
         bestPositions = swarm.getBestPositions();
-        bestSolutions = swarm.getBestEvals();
-        oldSolutions = swarm.getOldEvals();
+        bestSolutions = swarm.getBestSolutions();
+        oldSolutions = swarm.getOldSolutions();
         algorithmTextLogs = swarm.getAlgorithmTextLogs();
     }
 
@@ -241,8 +256,8 @@ public class PSOSceneController {
             Thread.sleep(applicationDelay);
             setAlgorithmProgress(increaseProgress(i));
 
-            pso_current_best_evaluation_text.setText(bestSolutions.get(i).toString());
-            pso_global_best_evaluation_text.setText(oldSolutions.get(i).toString());
+            pso_current_best_solution_text.setText(bestSolutions.get(i).toString());
+            pso_global_best_solution_text.setText(oldSolutions.get(i).toString());
             pso_x_value_text.setText(Double.valueOf(bestPositions.get(i).getX()).toString());
             pso_y_value_text.setText(Double.valueOf(bestPositions.get(i).getY()).toString());
             s += algorithmTextLogs.get(i) + "\n";
@@ -250,15 +265,15 @@ public class PSOSceneController {
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
 
             if (bestSolutions.get(i) == 10) {
-                pso_global_best_evaluation_text.setText(bestSolutions.get(i).toString());
+                pso_global_best_solution_text.setText(bestSolutions.get(i).toString());
                 setAlgorithmProgress(1d);
                 running = false;
                 break;
             } else if (i == epochsAmount)
-                pso_global_best_evaluation_text.setText(bestSolutions.get(i).toString());
+                pso_global_best_solution_text.setText(bestSolutions.get(i).toString());
         }
 
-        pso_current_best_evaluation_text.setText("");
+        pso_current_best_solution_text.setText("");
         running = false;
     }
 
@@ -279,4 +294,6 @@ public class PSOSceneController {
     private void setAlgorithmProgress(double algorithmProgress) {
         this.algorithmProgress.set(algorithmProgress);
     }
+
+
 }

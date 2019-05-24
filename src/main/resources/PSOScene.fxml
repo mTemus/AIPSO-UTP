@@ -54,9 +54,9 @@
                 <Font size="20.0" />
             </font>
         </Text>
-        <TextField fx:id="pso_particles_amount_textfield" layoutX="1237.0" layoutY="440.0" prefHeight="31.0" prefWidth="275.0" promptText="Type paricles amount..." />
+        <TextField fx:id="pso_particles_amount_textfield" layoutX="1237.0" layoutY="440.0" prefHeight="31.0" prefWidth="275.0" promptText="Particles amount" text="100" />
         <Text layoutX="1065.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Particles amount:" />
-        <TextField fx:id="pso_number_of_epochs_textfield" layoutX="1237.0" layoutY="490.0" prefHeight="31.0" prefWidth="275.0" promptText="Type number of epochs" />
+        <TextField fx:id="pso_number_of_epochs_textfield" layoutX="1237.0" layoutY="490.0" prefHeight="31.0" prefWidth="275.0" promptText="Number of epochs" />
         <Text layoutX="1065.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Number of Epochs:" />
         <Text layoutX="1212.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Application settings:">
             <font>
@@ -77,13 +77,16 @@
         <Button fx:id="pso_start_button" layoutX="1196.0" layoutY="735.0" mnemonicParsing="false" onAction="#startPSOApplication" text="Start" />
       <Text layoutX="14.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Global best solution:" />
       <Text layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current best solution:" />
-      <Text fx:id="pso_current_best_evaluation_text" layoutX="180.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="pso_global_best_evaluation_text" layoutX="180.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="pso_current_best_solution_text" layoutX="180.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="pso_global_best_solution_text" layoutX="180.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text layoutX="582.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best position y:" />
       <Text layoutX="582.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best position x:" />
       <Text fx:id="pso_x_value_text" layoutX="691.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="pso_y_value_text" layoutX="691.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="pso_fields_error_text" fill="RED" layoutX="1195.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill fields properly and try again!" visible="false" />
+      <Text fx:id="pso_fields_error_text" fill="RED" layoutX="1065.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill fields properly and try again!" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
       <Text layoutX="14.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current epoch:" />
       <Text fx:id="pso_current_epoch_number_text" layoutX="115.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.0" />
       <Text layoutX="583.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Function properties:">
@@ -95,18 +98,18 @@
       <Text layoutX="583.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cognitive component:" />
       <Text layoutX="583.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Social component:" />
       <Text layoutX="583.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Optimum:" />
-      <Text layoutX="583.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fitler precission:" />
-      <Text layoutX="740.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.729844 (default)" />
-      <Text layoutX="740.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.496180 (default)" />
-      <Text layoutX="740.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.496180 (default)" />
-      <Button layoutX="584.0" layoutY="190.0" mnemonicParsing="false" text="Reset to default" />
-      <Text layoutX="740.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0 (default)" />
-      <Text layoutX="740.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No precission (default)" />
+      <Text layoutX="583.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fitler precision:" />
+      <Text fx:id="interia_property_text" layoutX="740.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.729844 (default)" />
+      <Text fx:id="cognitive_property_text" layoutX="740.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.496180 (default)" />
+      <Text fx:id="social_property_text" layoutX="740.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.496180 (default)" />
+      <Button layoutX="584.0" layoutY="190.0" mnemonicParsing="false" onAction="#resetPropertiesToDefault" text="Reset to default" />
+      <Text fx:id="optimum_property_text" layoutX="740.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0 (default)" />
+      <Text fx:id="precision_property_text" layoutX="740.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 (default)" />
       <Text layoutX="1065.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Optimum:" />
       <TextField fx:id="pso_optimum_textfield" layoutX="1237.0" layoutY="340.0" prefHeight="31.0" prefWidth="275.0" promptText="Type social component value..." text="0.0" />
-      <Text layoutX="1065.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Filter precission:" />
-      <Button layoutX="1237.0" layoutY="641.0" mnemonicParsing="false" text="+" />
-      <Button layoutX="1331.0" layoutY="641.0" mnemonicParsing="false" prefWidth="31.0" text="-" />
-      <TextField alignment="CENTER" editable="false" layoutX="1277.0" layoutY="641.0" prefHeight="30.0" prefWidth="45.0" text="0" />
+      <Text layoutX="1065.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Filter precision:" />
+      <Button layoutX="1237.0" layoutY="641.0" mnemonicParsing="false" onAction="#increasePrecision" text="+" />
+      <Button layoutX="1331.0" layoutY="641.0" mnemonicParsing="false" onAction="#decreasePrecision" prefWidth="31.0" text="-" />
+      <TextField fx:id="pso_precision_textfield" alignment="CENTER" editable="false" layoutX="1277.0" layoutY="641.0" prefHeight="30.0" prefWidth="45.0" text="0" />
     </children>
 </AnchorPane>

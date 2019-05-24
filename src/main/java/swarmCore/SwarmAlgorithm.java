@@ -9,37 +9,22 @@ public class SwarmAlgorithm {
     private int numOfParticles, epochs;
     private double inertia, cognitiveComponent, socialComponent;
     private Vector bestPosition;
-    private double bestEval;
-    private Particle.FunctionType function; // The function to search.
+    private double bestSolution;
+    private Particle.FunctionType function;
 
     private List<Vector> bestPositions = new ArrayList<>();
-    private List<Double> bestEvals = new ArrayList<>();
-    private List<Double> oldEvals = new ArrayList<>();
+    private List<Double> bestSolutions = new ArrayList<>();
+    private List<Double> oldSolutions = new ArrayList<>();
     private List<String> algorithmTextLogs = new ArrayList<>();
 
     private static final double DEFAULT_INERTIA = 0.729844;
-    private static final double DEFAULT_COGNITIVE = 1.496180; // Cognitive component.
-    private static final double DEFAULT_SOCIAL = 1.496180; // Social component.
+    private static final double DEFAULT_COGNITIVE = 1.496180;
+    private static final double DEFAULT_SOCIAL = 1.496180;
 
-    /**
-     * When Particles are created they are given a random position.
-     * The random position is selected from a specified range.
-     * If the begin range is 0 and the end range is 10 then the
-     * value will be between 0 (inclusive) and 10 (exclusive).
-     */
     private int beginRange, endRange;
     private static final int DEFAULT_BEGIN_RANGE = -100;
     private static final int DEFAULT_END_RANGE = 101;
 
-    /**
-     * Construct the Swarm with custom values.
-     *
-     * @param particles the number of particles to create
-     * @param epochs    the number of generations
-     * @param inertia   the particles resistance to change
-     * @param cognitive the cognitive component or introversion of the particle
-     * @param social    the social component or extroversion of the particle
-     */
     public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int beginRange, int endRange) {
         this.numOfParticles = particles;
         this.epochs = epochs;
@@ -49,30 +34,27 @@ public class SwarmAlgorithm {
         this.function = function;
         double infinity = Double.POSITIVE_INFINITY;
         bestPosition = new Vector(infinity, infinity, infinity);
-        bestEval = Double.POSITIVE_INFINITY;
+        bestSolution = Double.POSITIVE_INFINITY;
         this.beginRange = beginRange;
         this.endRange = endRange;
     }
 
-    /**
-     * Execute the algorithm.
-     */
     public void run() {
         Particle[] particles = initialize();
         String s;
-        double oldEval = bestEval;
+        double oldSolution = bestSolution;
 
         for (int i = 0; i < epochs; i++) {
-            oldEvals.add(oldEval);
+            oldSolutions.add(oldSolution);
             bestPositions.add(bestPosition);
-            bestEvals.add(bestEval);
+            bestSolutions.add(bestSolution);
 
-            if (bestEval < oldEval) {
-                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval;
+            if (bestSolution < oldSolution) {
+                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestSolution;
                 algorithmTextLogs.add(s);
-                oldEval = bestEval;
+                oldSolution = bestSolution;
             } else {
-                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestEval;
+                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestSolution;
                 algorithmTextLogs.add(s);
             }
 
@@ -86,21 +68,7 @@ public class SwarmAlgorithm {
                 p.updatePosition();
             }
         }
-
-//        System.out.println("---------------------------RESULT---------------------------");
-//        System.out.println("x = " + bestPosition.getX());
-//        System.out.println("y = " + bestPosition.getY());
-//
-//        System.out.println("Final Best Evaluation: " + bestEval);
-//        System.out.println("---------------------------COMPLETE-------------------------");
-
     }
-
-    /**
-     * Create a setCoordinates of particles, each with random starting positions.
-     *
-     * @return an array of particles
-     */
     private Particle[] initialize() {
         Particle[] particles = new Particle[numOfParticles];
         for (int i = 0; i < numOfParticles; i++) {
@@ -113,9 +81,9 @@ public class SwarmAlgorithm {
 
 
     private void updateGlobalBest(Particle particle) {
-        if (particle.getBestEval() < bestEval) {
+        if (particle.getBestSolution() < bestSolution) {
             bestPosition = particle.getBestPosition();
-            bestEval = particle.getBestEval();
+            bestSolution = particle.getBestSolution();
         }
     }
 
@@ -150,12 +118,12 @@ public class SwarmAlgorithm {
         return bestPositions;
     }
 
-    public List<Double> getBestEvals() {
-        return bestEvals;
+    public List<Double> getBestSolutions() {
+        return bestSolutions;
     }
 
-    public List<Double> getOldEvals() {
-        return oldEvals;
+    public List<Double> getOldSolutions() {
+        return oldSolutions;
     }
 
     public List<String> getAlgorithmTextLogs() {

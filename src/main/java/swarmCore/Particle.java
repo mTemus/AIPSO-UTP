@@ -14,7 +14,7 @@ public class Particle {
     private Vector position;        // Current position.
     private Vector velocity;
     private Vector bestPosition;    // Personal best solution.
-    private double bestEval;        // Personal best value.
+    private double bestSolution;        // Personal best value.
     private FunctionType function;  // The evaluation function to use.
 
     /**
@@ -32,7 +32,7 @@ public class Particle {
         velocity = new Vector();
         setRandomPosition(beginRange, endRange);
         bestPosition = velocity.clone();
-        bestEval = eval();
+        bestSolution = eval();
     }
 
     /**
@@ -69,9 +69,9 @@ public class Particle {
      */
     void updatePersonalBest() {
         double eval = eval();
-        if (eval < bestEval) {
+        if (eval < bestSolution) {
             bestPosition = position.clone();
-            bestEval = eval;
+            bestSolution = eval;
         }
     }
 
@@ -97,8 +97,8 @@ public class Particle {
         return bestPosition.clone();
     }
 
-    public double getBestEval() {
-        return bestEval;
+    public double getBestSolution() {
+        return bestSolution;
     }
 
     public void setVelocity(Vector velocity) {
@@ -113,8 +113,8 @@ public class Particle {
         this.bestPosition = bestPosition;
     }
 
-    public void setBestEval(double bestEval) {
-        this.bestEval = bestEval;
+    public void setBestSolution(double bestSolution) {
+        this.bestSolution = bestSolution;
     }
 
     public FunctionType getFunction() {
