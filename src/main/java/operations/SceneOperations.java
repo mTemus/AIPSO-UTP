@@ -19,4 +19,13 @@ public class SceneOperations {
         window.setTitle("PSO Project | Marcin Wójcik & Sebastian Kemnitz");
         window.show();
     }
+
+    public void changeSceneToStarting(ActionEvent event) throws IOException {
+        Parent EventViewParent = FXMLLoader.load(getClass().getResource("/startingScene.fxml"));
+        Scene eventScene = new Scene(EventViewParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(eventScene);
+        window.setTitle("PSO Project | Marcin Wójcik & Sebastian Kemnitz");
+        window.show();
+    }
 }

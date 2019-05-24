@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.media.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PSOSceneController">
+<AnchorPane fx:id="pso_main_pane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PSOSceneController">
     <children>
         <Text fx:id="starting_authors_text" layoutX="7.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcin Wójcik &amp; Sebastian Kemnitz | group 4 | Applied Computer Science 18/19" />
-        <TextArea editable="false" layoutX="14.0" layoutY="326.0" prefHeight="550.0" prefWidth="550.0" text="There will be a 2D diagram filled with moving particles." wrapText="true" />
         <Text layoutX="1518.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v0.5 (alpha)" />
         <Text fx:id="pso_function_name_text" layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(function name)">
             <font>
@@ -111,5 +109,8 @@
       <Button layoutX="1237.0" layoutY="641.0" mnemonicParsing="false" onAction="#increasePrecision" text="+" />
       <Button layoutX="1331.0" layoutY="641.0" mnemonicParsing="false" onAction="#decreasePrecision" prefWidth="31.0" text="-" />
       <TextField fx:id="pso_precision_textfield" alignment="CENTER" editable="false" layoutX="1277.0" layoutY="641.0" prefHeight="30.0" prefWidth="45.0" text="0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="550.0" layoutX="15.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" width="550.0" />
+      <Circle fx:id="particle_test1" fill="DODGERBLUE" layoutX="221.0" layoutY="440.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button layoutX="373.0" layoutY="147.0" mnemonicParsing="false" onAction="#testParticle" text="Button" />
     </children>
 </AnchorPane>

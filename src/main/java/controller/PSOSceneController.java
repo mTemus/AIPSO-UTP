@@ -3,7 +3,11 @@ package controller;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import swarmCore.Particle;
 import swarmCore.SwarmAlgorithm;
@@ -51,6 +55,8 @@ public class PSOSceneController {
     public Text precision_property_text;
     public TextField pso_optimum_textfield;
     public TextField pso_precision_textfield;
+    public Circle particle_test1;
+    public AnchorPane pso_main_pane;
 
     private Particle.FunctionType function;
     private double inertiaValue;
@@ -309,5 +315,25 @@ public class PSOSceneController {
 
     public void setViewPattern(DecimalFormat viewPattern) {
         PSOSceneController.viewPattern = viewPattern;
+    }
+
+    public void testParticle(ActionEvent event) {
+
+        particle_test1.setLayoutX(180);
+        particle_test1.setLayoutX(500);
+
+        Circle particle_test2 = new Circle();
+
+        pso_main_pane.getChildren().add(particle_test2);
+        particle_test2.setVisible(true);
+        particle_test2.setRadius(6);
+        particle_test2.setStroke(Color.BLACK);
+        particle_test2.setFill(Color.RED);
+        particle_test2.setLayoutX(200);
+        particle_test2.setLayoutY(550);
+
+
+
+
     }
 }
