@@ -47,19 +47,33 @@ public class SwarmAlgorithm {
         Particle[] particles = initialize();
         String s;
         double oldSolution = bestSolution;
+        DecimalFormat viewFormat = new DecimalFormat("#0.0000000000");
         DecimalFormat finalSolution = setDecimalFormat();
 
         for (int i = 0; i < epochs; i++) {
-            oldSolutions.add(oldSolution);
+            oldSolutions.add(Double.valueOf(viewFormat.format(oldSolution)));
             bestPositions.add(bestPosition);
-            bestSolutions.add(bestSolution);
+            bestSolutions.add(Double.valueOf(viewFormat.format(bestSolution)));
+
+            if (filterPrecision == 0) {
+                if (bestSolution == optimum){
+                    System.out.println("BS = O | BS: " + bestSolution + " O: " + optimum);
+                    break;
+                }
+            } else {
+                if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum))){
+                    System.out.println("BSf = Of | BSf: " + bestSolution + " Of: " + optimum);
+                    break;
+                }
+
+            }
 
             if (bestSolution < oldSolution) {
-                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestSolution;
+                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + viewFormat.format(bestSolution);
                 algorithmTextLogs.add(s);
                 oldSolution = bestSolution;
             } else {
-                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestSolution;
+                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + viewFormat.format(bestSolution);
                 algorithmTextLogs.add(s);
             }
 
@@ -73,8 +87,7 @@ public class SwarmAlgorithm {
                 p.updatePosition();
             }
 
-            if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum)))
-                break;
+
         }
     }
 

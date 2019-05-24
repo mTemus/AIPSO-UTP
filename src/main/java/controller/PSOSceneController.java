@@ -91,7 +91,6 @@ public class PSOSceneController {
                 dataCollectedProperly = true;
             }
         }
-
     }
 
     public void changeFunction(ActionEvent event) {
@@ -261,33 +260,6 @@ public class PSOSceneController {
         algorithmTextLogs = swarm.getAlgorithmTextLogs();
     }
 
-//    private void lookArrays() {
-//
-//        System.out.println("Best positions size: " + bestPositions.size());
-//        System.out.println("Best evals size: " + bestSolutions.size());
-//        System.out.println("Old evals size: " + oldSolutions.size());
-//        System.out.println("Text log size: " + algorithmTextLogs.size());
-//        System.out.println("---------------------------------------------------");
-//
-//        for (Vector v : bestPositions) {
-//            System.out.println("Best position: " + v.toString());
-//        }
-//        System.out.println("---------------------------------------------------");
-//
-//        for (Double d : bestSolutions) {
-//            System.out.println("Best eval: " + d);
-//        }
-//        System.out.println("---------------------------------------------------");
-//        for (Double d : oldSolutions) {
-//            System.out.println("Old eval: " + d);
-//        }
-//        System.out.println("---------------------------------------------------");
-//
-//        for (String s : algorithmTextLogs) {
-//            System.out.println(s);
-//        }
-//    }
-
     private void startApplication() throws InterruptedException {
         getArrays();
         setViewFields();
@@ -295,7 +267,7 @@ public class PSOSceneController {
 
     private void setViewFields() throws InterruptedException {
         String s = "";
-        for (int i = 0; i < epochsAmount; i++) {
+        for (int i = 0; i < bestSolutions.size(); i++) {
             Thread.sleep(applicationDelay);
             setAlgorithmProgress(increaseProgress(i));
 
@@ -322,12 +294,12 @@ public class PSOSceneController {
 
     private double increaseProgress(int i) {
         double double_i = (double) i;
-        double double_epochs = (double) epochsAmount;
+        double double_size = (double) bestSolutions.size();
 
         if (i == epochsAmount - 1)
             return 1;
 
-        return double_i / double_epochs;
+        return double_i / double_size;
     }
 
     private DoubleProperty getAlgorithmProgress() {
