@@ -96,6 +96,8 @@ public class PSOSceneController {
                 pso_fields_error_text.setVisible(false);
                 dataCollectedProperly = true;
             }
+
+            createParticlesToDraw();
         }
     }
 
@@ -148,8 +150,7 @@ public class PSOSceneController {
     public void initialize() {
         setFunctionName();
         pso_swarm_progressbar.progressProperty().bind(getAlgorithmProgress());
-        createParticlesToDraw();
-        cc = createCircle();
+//        cc = createCircle();
     }
 
     private void resetPropertyValues() {
@@ -273,13 +274,17 @@ public class PSOSceneController {
             setAlgorithmProgress(increaseProgress(i));
 
             for (Particle p : swarmParticles.get(i)) {
+
                 for (Circle c : particleObjects) {
                     if (p.getBestSolution() == bestSolutions.get(i))
                         c.setFill(Color.RED);
                     else
                         c.setFill(Color.BLUE);
-                    c.setLayoutX(15 + p.getBestPosition().getX());
-                    c.setCenterY(326 + p.getBestPosition().getY());
+
+                    double coordinateX = 285.5 + p.getBestPosition().getX();
+                    double coordinateY = 438 + p.getBestPosition().getY();
+
+                    testCircle(c, coordinateX, coordinateY);
                 }
             }
 
@@ -291,7 +296,7 @@ public class PSOSceneController {
             pso_swarm_text_log_textarea.setText(s);
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
 
-            testCircle(cc, 100 + bestPositions.get(i).getX(), 100 + bestPositions.get(i).getY());
+//            testCircle(cc, 100 + bestPositions.get(i).getX(), 100 + bestPositions.get(i).getY());
 
             if (i == bestPositions.size() - 1)
                 pso_global_best_solution_text.setText(viewPattern.format(bestSolutions.get(i)));
@@ -301,24 +306,23 @@ public class PSOSceneController {
         running = false;
     }
 
-    private Circle createCircle() {
-        List<Circle> circles = new ArrayList<>();
-        Circle c = new Circle();
-
-        c.setFill(Color.GREEN);
-        c.setStroke(Color.BLACK);
-        c.setVisible(true);
-        c.setRadius(5);
-        circles.add(c);
-        pso_main_pane.getChildren().add(circles.get(0));
-
-        return c;
-    }
-
+//    private Circle createCircle() {
+//        List<Circle> circles = new ArrayList<>();
+//        Circle c = new Circle();
+//
+//        c.setFill(Color.GREEN);
+//        c.setStroke(Color.BLACK);
+//        c.setVisible(true);
+//        c.setRadius(5);
+//        circles.add(c);
+//        pso_main_pane.getChildren().add(circles.get(0));
+//
+//        return c;
+//    }
+//
     private void testCircle(Circle c, double x, double y) {
         c.setLayoutY(y);
         c.setLayoutX(x);
-
     }
 
 
@@ -339,8 +343,8 @@ public class PSOSceneController {
             c.setStroke(Color.BLACK);
             c.setFill(Color.BLUE);
             c.setVisible(true);
-            c.setLayoutX(601);
-            c.setLayoutY(290);
+//            c.setLayoutX(601);
+//            c.setLayoutY(290);
             particleObjects.add(c);
             pso_main_pane.getChildren().add(particleObjects.get(i));
         }
