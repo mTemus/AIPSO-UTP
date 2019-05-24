@@ -18,31 +18,23 @@ public class PSOSceneController {
     public ProgressBar pso_swarm_progressbar;
     public Button pso_save_settings_button;
     public TextArea pso_swarm_text_log_textarea;
-    public RadioButton field_range_50_radio;
     public ToggleGroup field_range;
-    public RadioButton field_range_100_radio;
-    public RadioButton field_range_150_radio;
-    public RadioButton field_range_200_radio;
-    public RadioButton inertia_default_radio;
-    public ToggleGroup inertia;
-    public RadioButton inertia_own_radio;
-    public TextField pso_own_inertia_textfield;
-    public RadioButton cognitive_default_radio;
-    public ToggleGroup cognitive;
-    public RadioButton cognitive_own_radio;
-    public TextField pso_own_cognitive_textfield;
-    public RadioButton social_default_radio;
-    public ToggleGroup social;
-    public RadioButton social_own_radio;
-    public TextField pso_own_social_textfield;
+
+    public TextField pso_inertia_textfield;
+    public TextField pso_cognitive_textfield;
+    public TextField pso_social_textfield;
     public TextField pso_particles_amount_textfield;
     public TextField pso_number_of_epochs_textfield;
-    public RadioButton delay_1000_radio;
     public ToggleGroup delay;
     public RadioButton delay_500_radio;
     public RadioButton delay_200_radio;
     public RadioButton delay_25_radio;
     public RadioButton delay_1500_radio;
+    public RadioButton field_range_50_radio;
+    public RadioButton field_range_100_radio;
+    public RadioButton field_range_150_radio;
+    public RadioButton field_range_200_radio;
+    public RadioButton delay_1000_radio;
     public Button pso_change_function_button;
     public Button pso_start_button;
     public Text pso_current_best_evaluation_text;
@@ -65,8 +57,8 @@ public class PSOSceneController {
     private DoubleProperty algorithmProgress = new SimpleDoubleProperty(0);
 
     private List<Vector> bestPositions = new ArrayList<>();
-    private List<Double> bestEvaluations = new ArrayList<>();
-    private List<Double> oldEvaluations = new ArrayList<>();
+    private List<Double> bestSolutions = new ArrayList<>();
+    private List<Double> oldSolutions = new ArrayList<>();
     private List<String> algorithmTextLogs = new ArrayList<>();
 
     private boolean running = false;
@@ -206,16 +198,16 @@ public class PSOSceneController {
 
     private void getArrays() {
         bestPositions = swarm.getBestPositions();
-        bestEvaluations = swarm.getBestEvals();
-        oldEvaluations = swarm.getOldEvals();
+        bestSolutions = swarm.getBestEvals();
+        oldSolutions = swarm.getOldEvals();
         algorithmTextLogs = swarm.getAlgorithmTextLogs();
     }
 
 //    private void lookArrays() {
 //
 //        System.out.println("Best positions size: " + bestPositions.size());
-//        System.out.println("Best evals size: " + bestEvaluations.size());
-//        System.out.println("Old evals size: " + oldEvaluations.size());
+//        System.out.println("Best evals size: " + bestSolutions.size());
+//        System.out.println("Old evals size: " + oldSolutions.size());
 //        System.out.println("Text log size: " + algorithmTextLogs.size());
 //        System.out.println("---------------------------------------------------");
 //
@@ -224,11 +216,11 @@ public class PSOSceneController {
 //        }
 //        System.out.println("---------------------------------------------------");
 //
-//        for (Double d : bestEvaluations) {
+//        for (Double d : bestSolutions) {
 //            System.out.println("Best eval: " + d);
 //        }
 //        System.out.println("---------------------------------------------------");
-//        for (Double d : oldEvaluations) {
+//        for (Double d : oldSolutions) {
 //            System.out.println("Old eval: " + d);
 //        }
 //        System.out.println("---------------------------------------------------");
@@ -249,21 +241,21 @@ public class PSOSceneController {
             Thread.sleep(applicationDelay);
             setAlgorithmProgress(increaseProgress(i));
 
-            pso_current_best_evaluation_text.setText(bestEvaluations.get(i).toString());
-            pso_global_best_evaluation_text.setText(oldEvaluations.get(i).toString());
+            pso_current_best_evaluation_text.setText(bestSolutions.get(i).toString());
+            pso_global_best_evaluation_text.setText(oldSolutions.get(i).toString());
             pso_x_value_text.setText(Double.valueOf(bestPositions.get(i).getX()).toString());
             pso_y_value_text.setText(Double.valueOf(bestPositions.get(i).getY()).toString());
             s += algorithmTextLogs.get(i) + "\n";
             pso_swarm_text_log_textarea.setText(s);
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
 
-            if (bestEvaluations.get(i) == 0) {
-                pso_global_best_evaluation_text.setText(bestEvaluations.get(i).toString());
+            if (bestSolutions.get(i) == 10) {
+                pso_global_best_evaluation_text.setText(bestSolutions.get(i).toString());
                 setAlgorithmProgress(1d);
                 running = false;
                 break;
             } else if (i == epochsAmount)
-                pso_global_best_evaluation_text.setText(bestEvaluations.get(i).toString());
+                pso_global_best_evaluation_text.setText(bestSolutions.get(i).toString());
         }
 
         pso_current_best_evaluation_text.setText("");

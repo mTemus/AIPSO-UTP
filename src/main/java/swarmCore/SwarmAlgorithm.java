@@ -111,12 +111,7 @@ public class SwarmAlgorithm {
         return particles;
     }
 
-    /**
-     * Update the global best solution if a the specified particle has
-     * a better solution
-     *
-     * @param particle the particle to analyze
-     */
+
     private void updateGlobalBest(Particle particle) {
         if (particle.getBestEval() < bestEval) {
             bestPosition = particle.getBestPosition();
@@ -124,11 +119,6 @@ public class SwarmAlgorithm {
         }
     }
 
-    /**
-     * Update the velocity of a particle using the velocity update formula
-     *
-     * @param particle the particle to update
-     */
     private void updateVelocity(Particle particle) {
         Vector oldVelocity = particle.getVelocity();
         Vector particleBestPosition = particle.getBestPosition();
@@ -139,17 +129,14 @@ public class SwarmAlgorithm {
         double r1 = random.nextDouble();
         double r2 = random.nextDouble();
 
-        // The first product of the formula.
         Vector newVelocity = oldVelocity.clone();
         newVelocity.multipleCoordinates(inertia);
 
-        // The second product of the formula.
         particleBestPosition.subtractCoordinates(position);
         particleBestPosition.multipleCoordinates(cognitiveComponent);
         particleBestPosition.multipleCoordinates(r1);
         newVelocity.addCoordinates(particleBestPosition);
 
-        // The third product of the formula.
         globalBestPosition.subtractCoordinates(position);
         globalBestPosition.multipleCoordinates(socialComponent);
         globalBestPosition.multipleCoordinates(r2);
