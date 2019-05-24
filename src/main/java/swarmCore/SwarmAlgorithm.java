@@ -2,7 +2,6 @@ package swarmCore;
 
 import controller.PSOSceneController;
 
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +19,7 @@ public class SwarmAlgorithm {
     private List<Double> bestSolutions = new ArrayList<>();
     private List<Double> oldSolutions = new ArrayList<>();
     private List<String> algorithmTextLogs = new ArrayList<>();
+    private List<List<Particle>> swarmParticles = new ArrayList<>();
 
     private static final double DEFAULT_INERTIA = 0.729844;
     private static final double DEFAULT_COGNITIVE = 1.496180;
@@ -46,13 +46,14 @@ public class SwarmAlgorithm {
     }
 
     public void run() {
-        Particle[] particles = initialize();
+        List<Particle> particles = initialize();
         String s;
         double oldSolution = bestSolution;
         DecimalFormat finalSolution = setDecimalFormat();
         exportViewPattern(finalSolution);
 
         for (int i = 0; i < epochs; i++) {
+            swarmParticles.add(particles);
             oldSolutions.add(oldSolution);
             bestPositions.add(bestPosition);
             bestSolutions.add(bestSolution);
@@ -88,11 +89,11 @@ public class SwarmAlgorithm {
         }
     }
 
-    private Particle[] initialize() {
-        Particle[] particles = new Particle[numOfParticles];
+    private List<Particle> initialize() {
+        List<Particle> particles = new ArrayList<>();
         for (int i = 0; i < numOfParticles; i++) {
             Particle particle = new Particle(function, beginRange, endRange, optimum);
-            particles[i] = particle;
+            particles.add(particle);
             updateGlobalBest(particle);
         }
         return particles;
@@ -167,6 +168,10 @@ public class SwarmAlgorithm {
 
     public List<String> getAlgorithmTextLogs() {
         return algorithmTextLogs;
+    }
+
+    public List<List<Particle>> getSwarmParticles() {
+        return swarmParticles;
     }
 
     public static double getDefaultInertia() {

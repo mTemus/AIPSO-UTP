@@ -70,13 +70,15 @@ public class PSOSceneController {
     private int filterPrecision = 0;
     private boolean dataCollectedProperly = false;
     private static DecimalFormat viewPattern;
-    private static DecimalFormat cordinatesPattern = new DecimalFormat("#0.0000000000000000000000");
+    private static DecimalFormat coordinatesPattern = new DecimalFormat("#0.0000000000000000000000");
     private DoubleProperty algorithmProgress = new SimpleDoubleProperty(0);
 
     private List<Vector> bestPositions = new ArrayList<>();
     private List<Double> bestSolutions = new ArrayList<>();
     private List<Double> oldSolutions = new ArrayList<>();
     private List<String> algorithmTextLogs = new ArrayList<>();
+    private List<List<Particle>> swarmParticles = new ArrayList<>();
+    private List<Circle> particleObjects = new ArrayList<>();
 
     private boolean running = false;
 
@@ -266,6 +268,7 @@ public class PSOSceneController {
         bestSolutions = swarm.getBestSolutions();
         oldSolutions = swarm.getOldSolutions();
         algorithmTextLogs = swarm.getAlgorithmTextLogs();
+        swarmParticles = swarm.getSwarmParticles();
     }
 
     private void startApplication() throws InterruptedException {
@@ -281,8 +284,8 @@ public class PSOSceneController {
 
             pso_current_best_solution_text.setText(viewPattern.format(bestSolutions.get(i)));
             pso_global_best_solution_text.setText(viewPattern.format(oldSolutions.get(i)));
-            pso_x_value_text.setText(String.valueOf(cordinatesPattern.format(bestPositions.get(i).getX())));
-            pso_y_value_text.setText(String.valueOf(cordinatesPattern.format(bestPositions.get(i).getY())));
+            pso_x_value_text.setText(String.valueOf(coordinatesPattern.format(bestPositions.get(i).getX())));
+            pso_y_value_text.setText(String.valueOf(coordinatesPattern.format(bestPositions.get(i).getY())));
             s += algorithmTextLogs.get(i) + "\n";
             pso_swarm_text_log_textarea.setText(s);
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
@@ -305,6 +308,20 @@ public class PSOSceneController {
         return double_i / double_size;
     }
 
+
+    private void createParticlesToDraw() {
+        for (int i = 0; i < bestSolutions.size(); i++) {
+            Circle c = new Circle();
+            c.setRadius(5);
+            c.setStroke(Color.BLACK);
+            c.setFill(Color.BLUE);
+            c.setVisible(true);
+            particleObjects.add(c);
+            pso_main_pane.getChildren().add(particleObjects.get(i));
+        }
+
+    }
+
     private DoubleProperty getAlgorithmProgress() {
         return algorithmProgress;
     }
@@ -317,23 +334,5 @@ public class PSOSceneController {
         PSOSceneController.viewPattern = viewPattern;
     }
 
-    public void testParticle(ActionEvent event) {
 
-        particle_test1.setLayoutX(180);
-        particle_test1.setLayoutX(500);
-
-        Circle particle_test2 = new Circle();
-
-        pso_main_pane.getChildren().add(particle_test2);
-        particle_test2.setVisible(true);
-        particle_test2.setRadius(6);
-        particle_test2.setStroke(Color.BLACK);
-        particle_test2.setFill(Color.RED);
-        particle_test2.setLayoutX(200);
-        particle_test2.setLayoutY(550);
-
-
-
-
-    }
 }
