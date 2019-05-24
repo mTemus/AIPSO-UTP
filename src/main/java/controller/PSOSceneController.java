@@ -129,7 +129,7 @@ public class PSOSceneController {
     }
 
     public void increasePrecision(ActionEvent event) {
-        if (filterPrecision < 10)
+        if (filterPrecision < 20)
             filterPrecision++;
         pso_precision_textfield.setText(Integer.toString(filterPrecision));
     }
@@ -275,8 +275,8 @@ public class PSOSceneController {
 
             pso_current_best_solution_text.setText(viewPattern.format(bestSolutions.get(i)));
             pso_global_best_solution_text.setText(viewPattern.format(oldSolutions.get(i)));
-            pso_x_value_text.setText(Double.valueOf(bestPositions.get(i).getX()).toString());
-            pso_y_value_text.setText(Double.valueOf(bestPositions.get(i).getY()).toString());
+            pso_x_value_text.setText(String.valueOf(viewPattern.format(bestPositions.get(i).getX())));
+            pso_y_value_text.setText(String.valueOf(viewPattern.format(bestPositions.get(i).getY())));
             s += algorithmTextLogs.get(i) + "\n";
             pso_swarm_text_log_textarea.setText(s);
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());

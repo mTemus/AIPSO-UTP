@@ -58,30 +58,20 @@ public class SwarmAlgorithm {
             bestSolutions.add(bestSolution);
 
             if (bestSolution < oldSolution) {
-                if (filterPrecision == 0)
-                    s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestSolution;
-                else
-                    s = "Global Best Evaluation (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
-
+                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
                 algorithmTextLogs.add(s);
                 oldSolution = bestSolution;
             } else {
-                if (filterPrecision == 0)
-                    s = "Global Best Evaluation (Epoch " + (i) + "):\t" + bestSolution;
-                else
-                    s = "Global Best Evaluation (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
-
+                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
                 algorithmTextLogs.add(s);
             }
 
             if (filterPrecision == 0) {
                 if (bestSolution == optimum) {
-                    System.out.println("BS = O | BS: " + bestSolution + " O: " + optimum);
                     break;
                 }
             } else {
                 if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum))) {
-                    System.out.println("BSf = Of | BSf: " + bestSolution + " Of: " + optimum);
                     break;
                 }
             }
@@ -110,29 +100,21 @@ public class SwarmAlgorithm {
 
     private void exportViewPattern(DecimalFormat viewPattern) {
         PSOSceneController PSOSC = new PSOSceneController();
-        if (filterPrecision > 0) {
-            PSOSC.setViewPattern(viewPattern);
-        } else {
+        PSOSC.setViewPattern(viewPattern);
+    }
+
+    private DecimalFormat setDecimalFormat() {
+        String pattern = "#0.";
+        if (filterPrecision == 0) {
             String stringDouble = Double.toString(Double.MAX_VALUE);
-            String pattern = "#0.";
 
             for (int i = 0; i < stringDouble.length(); i++) {
                 pattern += "0";
             }
-            DecimalFormat df = new DecimalFormat(pattern);
-            PSOSC.setViewPattern(df);
-        }
-    }
-
-    private DecimalFormat setDecimalFormat() {
-        String pattern;
-        if (filterPrecision == 0)
-            pattern = "#0";
-        else
-            pattern = "#0.";
-
-        for (int i = 0; i < filterPrecision; i++) {
-            pattern += "0";
+        } else {
+            for (int i = 0; i < filterPrecision; i++) {
+                pattern += "0";
+            }
         }
         return new DecimalFormat(pattern);
     }

@@ -78,7 +78,7 @@
       <Text layoutX="14.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Global best solution:" />
       <Text layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current best solution:" />
       <Text fx:id="pso_current_best_solution_text" layoutX="180.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="pso_global_best_solution_text" layoutX="180.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="pso_global_best_solution_text" layoutX="180.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="385.0" />
       <Text layoutX="582.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best position y:" />
       <Text layoutX="582.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best position x:" />
       <Text fx:id="pso_x_value_text" layoutX="691.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" />
