@@ -3,7 +3,6 @@ package controller;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -71,6 +70,7 @@ public class PSOSceneController {
     private int filterPrecision = 0;
     private boolean dataCollectedProperly = false;
     private static DecimalFormat viewPattern;
+    private static DecimalFormat cordinatesPattern = new DecimalFormat("#0.0000000000000000000000");
     private DoubleProperty algorithmProgress = new SimpleDoubleProperty(0);
 
     private List<Vector> bestPositions = new ArrayList<>();
@@ -281,8 +281,8 @@ public class PSOSceneController {
 
             pso_current_best_solution_text.setText(viewPattern.format(bestSolutions.get(i)));
             pso_global_best_solution_text.setText(viewPattern.format(oldSolutions.get(i)));
-            pso_x_value_text.setText(String.valueOf(viewPattern.format(bestPositions.get(i).getX())));
-            pso_y_value_text.setText(String.valueOf(viewPattern.format(bestPositions.get(i).getY())));
+            pso_x_value_text.setText(String.valueOf(cordinatesPattern.format(bestPositions.get(i).getX())));
+            pso_y_value_text.setText(String.valueOf(cordinatesPattern.format(bestPositions.get(i).getY())));
             s += algorithmTextLogs.get(i) + "\n";
             pso_swarm_text_log_textarea.setText(s);
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
