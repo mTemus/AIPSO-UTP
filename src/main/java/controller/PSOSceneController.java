@@ -158,7 +158,6 @@ public class PSOSceneController {
         pso_precision_textfield.setText(Integer.toString(filterPrecision));
     }
 
-
     public void initialize() {
         setFunctionName();
         pso_swarm_progressbar.progressProperty().bind(getAlgorithmProgress());

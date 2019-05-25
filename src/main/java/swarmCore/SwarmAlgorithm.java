@@ -153,7 +153,6 @@ public class SwarmAlgorithm {
         particle.setVelocity(newVelocity);
     }
 
-
     public List<Vector> getBestPositions() {
         return bestPositions;
     }

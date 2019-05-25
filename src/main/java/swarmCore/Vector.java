@@ -15,7 +15,6 @@ public class Vector {
         this.z = z;
     }
 
-
     void setCoordinates(double x, double y, double z) {
         setX(x);
         setY(y);
@@ -63,7 +62,6 @@ public class Vector {
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }
-
 
     public double getX() {
         return x;

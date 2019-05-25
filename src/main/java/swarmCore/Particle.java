@@ -6,16 +6,13 @@ import functions.ThreeHumpCamelFunction;
 
 import java.util.Random;
 
-/**
- * Represents a particle from the Particle Swarm Optimization algorithm.
- */
 public class Particle {
 
-    private Vector position;        // Current position.
+    private Vector position;
     private Vector velocity;
-    private Vector bestPosition;    // Personal best solution.
-    private double bestSolution;        // Personal best value.
-    private FunctionType function;  // The evaluation function to use.
+    private Vector bestPosition;
+    private double bestSolution;
+    private FunctionType function;
     private double optimum;
 
     Particle(FunctionType function, int beginRange, int endRange, double optimum) {
@@ -55,9 +52,6 @@ public class Particle {
         return r.nextInt(endRange - beginRange) + beginRange;
     }
 
-    /**
-     * Update the personal best if the current evaluation is better.
-     */
     void updatePersonalBest() {
         double eval = solution();
         if (eval < bestSolution) {
@@ -95,7 +89,4 @@ public class Particle {
     public void setVelocity(Vector velocity) {
         this.velocity = velocity.clone();
     }
-
-
-
 }

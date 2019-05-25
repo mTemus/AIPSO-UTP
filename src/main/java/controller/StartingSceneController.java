@@ -18,7 +18,6 @@ public class StartingSceneController {
     private static String function;
     private SceneOperations SO = new SceneOperations();
 
-
     public void saveFunction(ActionEvent event) {
         String chosenFunction = (String) starting_functions_combobox.getValue();
 
@@ -45,7 +44,6 @@ public class StartingSceneController {
 
     public void initialize() {
         setFunctionCombobox();
-
     }
 
     private void setFunctionCombobox() {
@@ -54,10 +52,7 @@ public class StartingSceneController {
                 "Booth function",
                 "Three-hump camel function"
         );
-
-
     }
-
 
     public static String getFunction() {
         return function;
