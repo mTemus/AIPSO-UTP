@@ -219,8 +219,23 @@ public class PSOSceneController {
     }
 
     private void setFieldSize() {
-        beginRange = -50;
-        endRange = 51;
+        String functionName = StartingSceneController.getFunction();
+        switch (functionName) {
+            case "Ackley":
+                beginRange = -5;
+                endRange = 6;
+            case "Booth":
+                beginRange = -10;
+                endRange = 11;
+                break;
+            case "Camel":
+                beginRange = -5;
+                endRange = 6;
+                break;
+            default:
+                System.out.println("Check field size error.");
+                break;
+        }
     }
 
     private void checkRadioboxes() {
