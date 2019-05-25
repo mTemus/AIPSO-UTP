@@ -6,10 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import operations.SceneOperations;
 import swarmCore.Particle;
 import swarmCore.SwarmAlgorithm;
 import swarmCore.Vector;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +71,7 @@ public class PSOSceneController {
     private List<Double> oldSolutions = new ArrayList<>();
     private List<String> algorithmTextLogs = new ArrayList<>();
 
+    private SceneOperations SO = new SceneOperations();
     private boolean running = false;
 
     private SwarmAlgorithm swarm;
@@ -90,11 +93,25 @@ public class PSOSceneController {
                 pso_fields_error_text.setVisible(false);
                 dataCollectedProperly = true;
             }
-
         }
     }
 
-    public void changeFunction(ActionEvent event) {
+    public void changeFunction(ActionEvent event) throws IOException {
+        if (!running){
+            resetPropertiesToDefault(event);
+            resetAllFields();
+            SO.changeSceneToStarting(event);
+        }
+    }
+
+    private void resetAllFields() {
+        dataCollectedProperly = false;
+        bestSolutions = null;
+        bestPositions = null;
+        oldSolutions = null;
+        algorithmTextLogs = null;
+        function = null;
+
     }
 
     public void startPSOApplication(ActionEvent event) {
@@ -122,9 +139,11 @@ public class PSOSceneController {
     }
 
     public void resetPropertiesToDefault(ActionEvent event) {
-        resetPropertyValues();
-        resetPropertyText();
-        resetPropertyTextfield();
+        if(!running){
+            resetPropertyValues();
+            resetPropertyText();
+            resetPropertyTextfield();
+        }
     }
 
     public void increasePrecision(ActionEvent event) {

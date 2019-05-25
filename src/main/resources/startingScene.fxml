@@ -7,21 +7,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartingSceneController">
+<AnchorPane prefHeight="900.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartingSceneController">
    <children>
-      <ComboBox fx:id="starting_functions_combobox" layoutX="525.0" layoutY="435.0" onAction="#saveFunction" prefHeight="31.0" prefWidth="550.0" promptText="Chose a function..." />
-      <Button fx:id="starting_start_button" layoutX="775.0" layoutY="519.0" mnemonicParsing="false" onAction="#startApplication" text="Start" />
-      <Text fx:id="starting_choose_text" layoutX="525.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chose function from list below:">
+      <ComboBox fx:id="starting_functions_combobox" layoutX="291.0" layoutY="435.0" onAction="#saveFunction" prefHeight="31.0" prefWidth="550.0" promptText="Chose a function..." />
+      <Button fx:id="starting_start_button" layoutX="510.0" layoutY="516.0" mnemonicParsing="false" onAction="#startApplication" text="Start" />
+      <Text fx:id="starting_choose_text" layoutX="291.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chose a function from list below:">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="starting_error_text" fill="RED" layoutX="525.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hidden error text." visible="false">
+      <Text fx:id="starting_error_text" fill="RED" layoutX="465.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hidden error text." visible="false">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
       <Text fx:id="starting_authors_text" layoutX="7.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcin Wójcik &amp; Sebastian Kemnitz | group 4 | Applied Computer Science 18/19" />
-      <Text layoutX="1516.0" layoutY="892.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v0.5 (alpha)" />
    </children>
 </AnchorPane>

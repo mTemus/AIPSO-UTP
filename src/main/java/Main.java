@@ -10,7 +10,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("startingScene.fxml"));
         primaryStage.setTitle("PSO Project | Marcin Wójcik & Sebastian Kemnitz");
-        primaryStage.setScene(new Scene(root, 1600, 900));
+        primaryStage.setScene(new Scene(root, 1070, 900));
         primaryStage.show();
     }
 
