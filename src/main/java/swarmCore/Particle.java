@@ -18,12 +18,6 @@ public class Particle {
     private FunctionType function;  // The evaluation function to use.
     private double optimum;
 
-    /**
-     * Construct a Particle with a random starting position.
-     *
-     * @param beginRange the minimum xyz values of the position (inclusive)
-     * @param endRange   the maximum xyz values of the position (exclusive)
-     */
     Particle(FunctionType function, int beginRange, int endRange, double optimum) {
         if (beginRange >= endRange) {
             throw new IllegalArgumentException("Begin range must be less than end range.");
@@ -33,16 +27,11 @@ public class Particle {
         velocity = new Vector();
         setRandomPosition(beginRange, endRange);
         bestPosition = velocity.clone();
-        bestSolution = eval();
+        bestSolution = solution();
         this.optimum = optimum;
     }
 
-    /**
-     * The evaluation of the current position.
-     *
-     * @return the evaluation
-     */
-    private double eval() {
+    private double solution() {
 
         if (function == FunctionType.Ackleys) {
             return AckleyFunction.ackleyFunction(position.getX(), position.getY(), optimum);
@@ -70,7 +59,7 @@ public class Particle {
      * Update the personal best if the current evaluation is better.
      */
     void updatePersonalBest() {
-        double eval = eval();
+        double eval = solution();
         if (eval < bestSolution) {
             bestPosition = position.clone();
             bestSolution = eval;

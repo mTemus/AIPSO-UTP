@@ -5,8 +5,6 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import swarmCore.Particle;
 import swarmCore.SwarmAlgorithm;
@@ -17,17 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PSOSceneController {
-    public Text starting_authors_text;
-    public Text pso_function_name_text;
     public ProgressBar pso_swarm_progressbar;
-    public Button pso_save_settings_button;
     public TextArea pso_swarm_text_log_textarea;
-
     public TextField pso_inertia_textfield;
     public TextField pso_cognitive_textfield;
     public TextField pso_social_textfield;
     public TextField pso_particles_amount_textfield;
     public TextField pso_number_of_epochs_textfield;
+    public TextField pso_optimum_textfield;
+    public TextField pso_precision_textfield;
     public ToggleGroup delay;
     public RadioButton delay_500_radio;
     public RadioButton delay_200_radio;
@@ -36,6 +32,9 @@ public class PSOSceneController {
     public RadioButton delay_1000_radio;
     public Button pso_change_function_button;
     public Button pso_start_button;
+    public Button pso_save_settings_button;
+    public Text starting_authors_text;
+    public Text pso_function_name_text;
     public Text pso_current_best_solution_text;
     public Text pso_global_best_solution_text;
     public Text pso_x_value_text;
@@ -47,8 +46,6 @@ public class PSOSceneController {
     public Text social_property_text;
     public Text optimum_property_text;
     public Text precision_property_text;
-    public TextField pso_optimum_textfield;
-    public TextField pso_precision_textfield;
     public AnchorPane pso_main_pane;
 
     private Particle.FunctionType function;
@@ -67,13 +64,10 @@ public class PSOSceneController {
     private static DecimalFormat coordinatesPattern = new DecimalFormat("#0.0000000000000000000000");
     private DoubleProperty algorithmProgress = new SimpleDoubleProperty(0);
 
-    private Circle cc;
     private List<Vector> bestPositions = new ArrayList<>();
     private List<Double> bestSolutions = new ArrayList<>();
     private List<Double> oldSolutions = new ArrayList<>();
     private List<String> algorithmTextLogs = new ArrayList<>();
-    private List<List<Particle>> swarmParticles = new ArrayList<>();
-    private List<Circle> particleObjects = new ArrayList<>();
 
     private boolean running = false;
 
@@ -97,7 +91,6 @@ public class PSOSceneController {
                 dataCollectedProperly = true;
             }
 
-            createParticlesToDraw();
         }
     }
 
@@ -150,7 +143,6 @@ public class PSOSceneController {
     public void initialize() {
         setFunctionName();
         pso_swarm_progressbar.progressProperty().bind(getAlgorithmProgress());
-//        cc = createCircle();
     }
 
     private void resetPropertyValues() {
@@ -209,8 +201,8 @@ public class PSOSceneController {
     }
 
     private void setFieldSize() {
-        beginRange = -275;
-        endRange = 276;
+        beginRange = -50;
+        endRange = 51;
     }
 
     private void checkRadioboxes() {
@@ -258,7 +250,6 @@ public class PSOSceneController {
         bestSolutions = swarm.getBestSolutions();
         oldSolutions = swarm.getOldSolutions();
         algorithmTextLogs = swarm.getAlgorithmTextLogs();
-        swarmParticles = swarm.getSwarmParticles();
     }
 
     private void startApplication() throws InterruptedException {
@@ -273,20 +264,6 @@ public class PSOSceneController {
             Thread.sleep(applicationDelay);
             setAlgorithmProgress(increaseProgress(i));
 
-            for (Particle p : swarmParticles.get(i)) {
-                for (Circle c : particleObjects) {
-                    if (p.getBestSolution() == bestSolutions.get(i))
-                        c.setFill(Color.RED);
-                    else
-                        c.setFill(Color.BLUE);
-
-                    double coordinateX = 285.5 + (p.getPosition().getX() * 1000000000000d);
-                    double coordinateY = 438 + (p.getPosition().getY() * 1000000000000d);
-
-                    testCircle(c, coordinateX, coordinateY);
-                }
-            }
-
             pso_current_best_solution_text.setText(viewPattern.format(bestSolutions.get(i)));
             pso_global_best_solution_text.setText(viewPattern.format(oldSolutions.get(i)));
             pso_x_value_text.setText(String.valueOf(coordinatesPattern.format(bestPositions.get(i).getX())));
@@ -294,8 +271,6 @@ public class PSOSceneController {
             s += algorithmTextLogs.get(i) + "\n";
             pso_swarm_text_log_textarea.setText(s);
             pso_current_epoch_number_text.setText(Integer.valueOf(i).toString());
-
-//            testCircle(cc, 100 + bestPositions.get(i).getX(), 100 + bestPositions.get(i).getY());
 
             if (i == bestPositions.size() - 1)
                 pso_global_best_solution_text.setText(viewPattern.format(bestSolutions.get(i)));
@@ -305,26 +280,6 @@ public class PSOSceneController {
         running = false;
     }
 
-//    private Circle createCircle() {
-//        List<Circle> circles = new ArrayList<>();
-//        Circle c = new Circle();
-//
-//        c.setFill(Color.GREEN);
-//        c.setStroke(Color.BLACK);
-//        c.setVisible(true);
-//        c.setRadius(5);
-//        circles.add(c);
-//        pso_main_pane.getChildren().add(circles.get(0));
-//
-//        return c;
-//    }
-//
-    private void testCircle(Circle c, double x, double y) {
-        c.setLayoutY(y);
-        c.setLayoutX(x);
-    }
-
-
     private double increaseProgress(int i) {
         double double_i = (double) i;
         double double_size = (double) bestSolutions.size();
@@ -333,20 +288,6 @@ public class PSOSceneController {
             return 1;
 
         return double_i / double_size;
-    }
-
-    private void createParticlesToDraw() {
-        for (int i = 0; i < particlesAmount; i++) {
-            Circle c = new Circle();
-            c.setRadius(5);
-            c.setStroke(Color.BLACK);
-            c.setFill(Color.BLUE);
-            c.setVisible(true);
-//            c.setLayoutX(601);
-//            c.setLayoutY(290);
-            particleObjects.add(c);
-            pso_main_pane.getChildren().add(particleObjects.get(i));
-        }
     }
 
     private DoubleProperty getAlgorithmProgress() {
@@ -360,6 +301,5 @@ public class PSOSceneController {
     public void setViewPattern(DecimalFormat viewPattern) {
         PSOSceneController.viewPattern = viewPattern;
     }
-
 
 }
