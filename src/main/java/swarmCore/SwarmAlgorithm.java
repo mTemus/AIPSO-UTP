@@ -59,24 +59,19 @@ public class SwarmAlgorithm {
             bestSolutions.add(bestSolution);
 
             if (bestSolution < oldSolution) {
-                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
+                s = "Global best solution (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
                 algorithmTextLogs.add(s);
                 oldSolution = bestSolution;
             } else {
-                s = "Global Best Evaluation (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
+                s = "Global best solution (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
                 algorithmTextLogs.add(s);
             }
 
-            System.out.println("przed if");
-
             if (filterPrecision == 0) {
-                System.out.println("1 " + finalSolution.format(optimum));
-                System.out.println("1 bs: " + bestSolution);
                 if (bestSolution == optimum) {
                     break;
                 }
             } else {
-                System.out.println("2" + finalSolution.format(optimum));
 
                 if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum))) {
                     break;
