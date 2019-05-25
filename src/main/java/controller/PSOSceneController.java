@@ -111,7 +111,6 @@ public class PSOSceneController {
         oldSolutions = null;
         algorithmTextLogs = null;
         function = null;
-
     }
 
     public void startPSOApplication(ActionEvent event) {
@@ -222,20 +221,22 @@ public class PSOSceneController {
         String functionName = StartingSceneController.getFunction();
         switch (functionName) {
             case "Ackley":
-                beginRange = -5;
-                endRange = 6;
-            case "Booth":
-                beginRange = -10;
-                endRange = 11;
-                break;
             case "Camel":
                 beginRange = -5;
                 endRange = 6;
+                break;
+            case "Booth":
+                beginRange = -10;
+                endRange = 11;
                 break;
             default:
                 System.out.println("Check field size error.");
                 break;
         }
+        System.out.println(functionName);
+        System.out.println(beginRange);
+        System.out.println(endRange);
+
     }
 
     private void checkRadioboxes() {

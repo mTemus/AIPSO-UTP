@@ -24,12 +24,11 @@ public class Particle {
         velocity = new Vector();
         setRandomPosition(beginRange, endRange);
         bestPosition = velocity.clone();
-        bestSolution = solution();
+        bestSolution = calculateSolution();
         this.optimum = optimum;
     }
 
-    private double solution() {
-
+    private double calculateSolution() {
         if (function == FunctionType.Ackleys) {
             return AckleyFunction.ackleyFunction(position.getX(), position.getY(), optimum);
         } else if (function == FunctionType.Booths) {
@@ -53,10 +52,10 @@ public class Particle {
     }
 
     void updatePersonalBest() {
-        double eval = solution();
-        if (eval < bestSolution) {
+        double solution = calculateSolution();
+        if (solution < bestSolution) {
             bestPosition = position.clone();
-            bestSolution = eval;
+            bestSolution = solution;
         }
     }
 

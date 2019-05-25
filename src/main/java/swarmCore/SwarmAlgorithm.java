@@ -67,11 +67,17 @@ public class SwarmAlgorithm {
                 algorithmTextLogs.add(s);
             }
 
+            System.out.println("przed if");
+
             if (filterPrecision == 0) {
+                System.out.println("1 " + finalSolution.format(optimum));
+                System.out.println("1 bs: " + bestSolution);
                 if (bestSolution == optimum) {
                     break;
                 }
             } else {
+                System.out.println("2" + finalSolution.format(optimum));
+
                 if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum))) {
                     break;
                 }
