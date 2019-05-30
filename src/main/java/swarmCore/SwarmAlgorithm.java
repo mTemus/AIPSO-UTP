@@ -26,8 +26,7 @@ public class SwarmAlgorithm {
     private static final double DEFAULT_SOCIAL = 1.496180;
 
     private int beginRange, endRange;
-    private static final int DEFAULT_BEGIN_RANGE = -100;
-    private static final int DEFAULT_END_RANGE = 101;
+
 
     public SwarmAlgorithm(Particle.FunctionType function, int particles, int epochs, double inertia, double cognitive, double social, int beginRange, int endRange, double optimum, int filterPrecision) {
         this.numOfParticles = particles;
@@ -72,7 +71,6 @@ public class SwarmAlgorithm {
                     break;
                 }
             } else {
-
                 if (finalSolution.format(bestSolution).equals(finalSolution.format(optimum))) {
                     break;
                 }
@@ -81,6 +79,7 @@ public class SwarmAlgorithm {
             for (Particle p : particles) {
                 p.updatePersonalBest();
                 updateGlobalBest(p);
+
             }
 
             for (Particle p : particles) {
@@ -122,10 +121,12 @@ public class SwarmAlgorithm {
     }
 
     private void updateGlobalBest(Particle particle) {
-        if (particle.getBestSolution() < bestSolution) {
-            bestPosition = particle.getBestPosition();
-            bestSolution = particle.getBestSolution();
-        }
+            if (particle.getBestSolution() < bestSolution && particle.getBestSolution() >= optimum) {
+                bestPosition = particle.getBestPosition();
+                bestSolution = particle.getBestSolution();
+            }
+
+        System.out.println(particle.getBestSolution());
     }
 
     private void updateVelocity(Particle particle) {
@@ -185,14 +186,5 @@ public class SwarmAlgorithm {
     public static double getDefaultSocial() {
         return DEFAULT_SOCIAL;
     }
-
-    public static int getDefaultBeginRange() {
-        return DEFAULT_BEGIN_RANGE;
-    }
-
-    public static int getDefaultEndRange() {
-        return DEFAULT_END_RANGE;
-    }
-
 
 }
