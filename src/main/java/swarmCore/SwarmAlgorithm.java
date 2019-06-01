@@ -128,7 +128,6 @@ public class SwarmAlgorithm {
                 bestSolution = particle.getBestSolution();
             }
 
-//        System.out.println(particle.getBestSolution());
     }
 
     private void updateVelocity(Particle particle) {
