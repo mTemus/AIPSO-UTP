@@ -14,6 +14,8 @@ public class SwarmAlgorithm {
     private Vector bestPosition;
     private double bestSolution;
     private Particle.FunctionType function;
+    private static DecimalFormat solutionsPattern = new DecimalFormat("#0.0000000000000000000000");
+
 
     private List<Vector> bestPositions = new ArrayList<>();
     private List<Double> bestSolutions = new ArrayList<>();
@@ -58,11 +60,11 @@ public class SwarmAlgorithm {
             bestSolutions.add(bestSolution);
 
             if (bestSolution < oldSolution) {
-                s = "Global best solution (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
+                s = "Global best solution (Epoch " + (i) + "):\t" + solutionsPattern.format(bestSolution);
                 algorithmTextLogs.add(s);
                 oldSolution = bestSolution;
             } else {
-                s = "Global best solution (Epoch " + (i) + "):\t" + finalSolution.format(bestSolution);
+                s = "Global best solution (Epoch " + (i) + "):\t" + solutionsPattern.format(bestSolution);
                 algorithmTextLogs.add(s);
             }
 
@@ -126,7 +128,7 @@ public class SwarmAlgorithm {
                 bestSolution = particle.getBestSolution();
             }
 
-        System.out.println(particle.getBestSolution());
+//        System.out.println(particle.getBestSolution());
     }
 
     private void updateVelocity(Particle particle) {

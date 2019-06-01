@@ -233,10 +233,6 @@ public class PSOSceneController {
                 System.out.println("Check field size error.");
                 break;
         }
-        System.out.println(functionName);
-        System.out.println(beginRange);
-        System.out.println(endRange);
-
     }
 
     private void checkRadioboxes() {
@@ -335,5 +331,7 @@ public class PSOSceneController {
     public void setViewPattern(DecimalFormat viewPattern) {
         PSOSceneController.viewPattern = viewPattern;
     }
+
+
 
 }
